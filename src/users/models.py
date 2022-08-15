@@ -4,7 +4,7 @@ from django.core.validators import EmailValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from src.core.user_manager import UserManager
+from src.users.user_manager import UserManager
 
 
 class Roles(models.Model):
