@@ -1,11 +1,11 @@
 from rest_framework import routers
 
-from api.viewsets.hello_world import HelloWorldViewSet
+from users.viewsets.user.view import UserViewSet
 
 router = routers.SimpleRouter()
 
 urlpatterns = []
 
-router.register("hello", HelloWorldViewSet)
+router.register("user", UserViewSet)
 
 urlpatterns += router.urls
