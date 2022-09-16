@@ -1,7 +1,7 @@
 from django.contrib.auth.base_user import BaseUserManager
 
 
-class UserManager(BaseUserManager):
+class UserRepository(BaseUserManager):
     def create_user(self, username, name, lastname, email, password):
         user = self.model(name=name, lastname=lastname, email=self.normalize_email(email), username=username)
         user.set_password(password)

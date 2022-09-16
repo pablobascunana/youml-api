@@ -1,9 +1,9 @@
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 
-from api.services.user import UserService
 from users.models import User
 from users.viewsets.user.serializer import UserSerializer
+from users.viewsets.user.services import UserService
 
 
 class UserViewSet(viewsets.ModelViewSet):

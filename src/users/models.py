@@ -6,7 +6,7 @@ from django.core.validators import EmailValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from users.user_manager import UserManager
+from users.viewsets.user.repository import UserRepository
 
 
 class Roles(models.Model):
@@ -37,7 +37,7 @@ class User(AbstractBaseUser):
 
     REQUIRED_FIELDS = ['name', 'lastname', 'email', 'password']
 
-    objects = UserManager()
+    objects = UserRepository()
 
     class Meta:
         db_table = 'users'
