@@ -11,7 +11,7 @@ from users.user_manager import UserManager
 
 class Roles(models.Model):
     ADMIN = 'ADMIN'
-    USER = 'USER'
+    NORMAL = 'NORMAL'
 
     class Meta:
         db_table = 'roles'
@@ -29,7 +29,7 @@ class User(AbstractBaseUser):
     password = models.CharField(_('password'), max_length=150, null=False)
     verified = models.BooleanField(_('verified'), default=False, null=False)
     active = models.PositiveSmallIntegerField(_('active'), default=0, null=False)
-    role = models.CharField(_('role'), max_length=10, default=Roles.USER, null=False)
+    role = models.CharField(_('role'), max_length=10, default=Roles.NORMAL, null=False)
     login_attempts = models.PositiveSmallIntegerField(_('login_attempts'), default=0, null=False)
     register_date = models.DateTimeField(_('register_date'), auto_now_add=True, null=False)
 
