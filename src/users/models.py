@@ -9,15 +9,11 @@ from django.utils.translation import gettext_lazy as _
 from users.viewsets.user.repository import UserRepository
 
 
-class Roles(models.Model):
-    ADMIN = 'ADMIN'
-    NORMAL = 'NORMAL'
-
-    class Meta:
-        db_table = 'roles'
-
-
 class User(AbstractBaseUser):
+    class Roles(models.TextChoices):
+        ADMIN = 'ADMIN'
+        NORMAL = 'NORMAL'
+
     username_validator = UnicodeUsernameValidator()
     email_validator = EmailValidator()
 
