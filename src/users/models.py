@@ -17,7 +17,7 @@ class User(AbstractBaseUser):
     username_validator = UnicodeUsernameValidator()
     email_validator = EmailValidator()
 
-    uuid = models.UUIDField(_('uuid'), max_length=64, unique=True, primary_key=True, default=uuid.uuid4())
+    uuid = models.UUIDField(_('uuid'), max_length=64, unique=True, primary_key=True, default=uuid.uuid4)
     username = models.CharField(_('username'), max_length=30, unique=True, validators=[username_validator])
     name = models.CharField(_('name'), max_length=30, null=False)
     lastname = models.CharField(_('lastname'), max_length=30, null=False)
