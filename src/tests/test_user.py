@@ -10,14 +10,16 @@ class TestUserEndpoints:
         "username": "user_admin",
         "name": "user",
         "lastname": "admin",
-        "email": "admin@email.com"
+        "email": "admin@email.com",
+        "role": "ADMIN"
     }
     new_user = {
         "username": "new_user",
         "name": "new",
         "lastname": "user",
         "email": "new_user@email.com",
-        "password": "1234"
+        "password": "1234",
+        "role": "ADMIN"
     }
     username_exists = 'user with this username already exists.'
     email_exists = 'user with this email already exists.'

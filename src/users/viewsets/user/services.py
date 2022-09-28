@@ -11,4 +11,4 @@ class UserService:
         user_serializer = UserSerializer(data=user)
         user_serializer.is_valid(raise_exception=True)
         get_user_model().objects.create_user(name=user['name'], lastname=user['lastname'], email=user['email'],
-                                             username=user['username'], password=user['password'])
+                                             username=user['username'], password=user['password'], role=user['role'])
