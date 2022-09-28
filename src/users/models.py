@@ -29,7 +29,7 @@ class User(AbstractBaseUser):
     role = models.CharField(_('role'), max_length=10, default=Roles.NORMAL, null=False)
     login_attempts = models.PositiveSmallIntegerField(_('login_attempts'), default=0, null=False)
     register_date = models.DateTimeField(_('register_date'), auto_now_add=True, null=False)
-    company = models.ForeignKey(Company, on_delete=models.CASCADE)
+    company = models.ForeignKey(Company, on_delete=models.CASCADE, default=None)
 
     USERNAME_FIELD = 'username'
 
