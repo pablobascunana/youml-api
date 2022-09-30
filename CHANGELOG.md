@@ -2,6 +2,12 @@
 
 All notable changes will be documented in this file
 
+## [0.0.2](https://github.com/pablobascunana/youml-manager/compare/d34ac30...develop) (WIP)
+
+### Added
+- [ML-28](https://youml.atlassian.net/browse/ML-28) Company model and company foreign key in user model
+- [ML-30](https://youml.atlassian.net/browse/ML-30) Changelog
+
 ## [0.0.1](https://github.com/pablobascunana/youml-manager/compare/c607e63...d34ac30) (30-09-2022)
 
 ### Added
@@ -10,10 +16,3 @@ All notable changes will be documented in this file
 
 ### Fixed
 - [ML-32](https://youml.atlassian.net/browse/ML-32) Hide secret key and other variables in .env files
-
-## [0.0.2](https://github.com/pablobascunana/youml-manager/compare/d34ac30...develop) (WIP)
-
-### Added
-- [ML-28](https://youml.atlassian.net/browse/ML-28) Company model and company foreign key in user model
-- [ML-30](https://youml.atlassian.net/browse/ML-30) Changelog
-
