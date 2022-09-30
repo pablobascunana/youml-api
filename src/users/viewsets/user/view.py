@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from users.models import User
 from users.viewsets.user.permissions import IsAllowed
 from users.viewsets.user.serializer import UserSerializer
-from users.viewsets.user.services import UserService
+from users.viewsets.user.service import UserService
 
 
 class UserViewSet(viewsets.ModelViewSet):
