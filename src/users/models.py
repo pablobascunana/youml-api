@@ -6,6 +6,7 @@ from django.core.validators import EmailValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from api.viewsets.company.model import Company
 from users.viewsets.user.repository import UserRepository
 
 
@@ -28,6 +29,7 @@ class User(AbstractBaseUser):
     role = models.CharField(_('role'), max_length=10, default=Roles.NORMAL, null=False)
     login_attempts = models.PositiveSmallIntegerField(_('login_attempts'), default=0, null=False)
     register_date = models.DateTimeField(_('register_date'), auto_now_add=True, null=False)
+    company = models.ForeignKey(Company, on_delete=models.CASCADE, default=None)
 
     USERNAME_FIELD = 'username'
 
