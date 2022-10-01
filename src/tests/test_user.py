@@ -1,26 +1,13 @@
 import pytest
+from django.forms import model_to_dict
 from rest_framework.test import APIClient
+
+from users.models import User
 
 
 @pytest.mark.django_db
 class TestUserEndpoints:
     endpoint = '/users/v1/user'
-    user = {
-        "uuid": "39cb5f20-4154-4cb1-be51-827fe3303ce9",
-        "username": "user_admin",
-        "name": "user",
-        "lastname": "admin",
-        "email": "admin@email.com",
-        "role": "ADMIN"
-    }
-    new_user = {
-        "username": "new_user",
-        "name": "new",
-        "lastname": "user",
-        "email": "new_user@email.com",
-        "password": "1234",
-        "role": "ADMIN"
-    }
     username_exists = 'user with this username already exists.'
     email_exists = 'user with this email already exists.'
 
@@ -56,31 +43,31 @@ class TestUserEndpoints:
         response = client_as_admin[0].get(f"{self.endpoint}/")
         assert response.status_code == 404
 
-    def test_create_duplicate_user_and_missing_password_field(self, client_as_admin: APIClient):
-        response = client_as_admin[0].post(f"{self.endpoint}", self.user)
+    def test_create_duplicate_user_and_missing_password_field(self, client_as_admin: APIClient, user: User):
+        user = model_to_dict(user, fields=['username', 'name', 'lastname', 'email', 'role'])
+        response = client_as_admin[0].post(f"{self.endpoint}", user)
         assert response.status_code == 400
         result = response.json()
         assert result['username'][0] == self.username_exists
         assert result['email'][0] == self.email_exists
         assert result['password'][0] == 'This field is required.'
 
-    def test_create_duplicate_username(self, client_as_admin: APIClient):
-        self.user['password'] = '1234'
-        self.user['email'] = 'admin2@email.com'
-        response = client_as_admin[0].post(f"{self.endpoint}", self.user)
+    def test_create_duplicate_username(self, client_as_admin: APIClient, user: User):
+        user = model_to_dict(user, fields=['username', 'name', 'lastname', 'email', 'role'])
+        response = client_as_admin[0].post(f"{self.endpoint}", user)
         assert response.status_code == 400
         assert response.json()['username'][0] == self.username_exists
 
-    def test_create_duplicate_email(self, client_as_admin: APIClient):
-        self.user['password'] = '1234'
-        self.user['username'] = 'admin2'
-        self.user['email'] = 'admin@email.com'
-        response = client_as_admin[0].post(f"{self.endpoint}", self.user)
+    def test_create_duplicate_email(self, client_as_admin: APIClient, user: User):
+        user = model_to_dict(user, fields=['username', 'name', 'lastname', 'email', 'role'])
+        response = client_as_admin[0].post(f"{self.endpoint}", user)
         assert response.status_code == 400
         assert response.json()['email'][0] == self.email_exists
 
     def test_create(self, client_as_admin: APIClient):
-        response = client_as_admin[0].post(f"{self.endpoint}", self.new_user)
+        user = {"username": "username", "name": "name", "lastname": "lastname", "email": "user_email@email.com",
+                "password": "user_password", "role": "ADMIN"}
+        response = client_as_admin[0].post(f"{self.endpoint}", user)
         assert response.status_code == 201
 
     def test_update(self, client_as_admin: APIClient):
@@ -90,20 +77,3 @@ class TestUserEndpoints:
     def test_delete(self, client_as_admin: APIClient):
         response = client_as_admin[0].delete(f"{self.endpoint}")
         assert response.status_code == 405
-
-    # def test_list_without_permission(self, client: APIClient):
-    #     response = client.get(self.endpoint)
-    #     assert response == 403
-    #
-    # def test_list_non_existing(self):
-    #     pass
-    #
-    # def test_retrieve(self):
-    #     pass
-    #
-    # def test_update(self):
-    #     pass
-    #
-    # def test_delete(self):
-    #     pass
-    #

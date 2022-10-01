@@ -15,12 +15,12 @@ class Company(ValidateModelMixin, models.Model):
     name = models.CharField(_('name'), max_length=30, null=False)
     cif = models.CharField(_('cif'), max_length=9, unique=True, null=False)
     email = models.EmailField(_('email'), max_length=80, unique=True, null=False, validators=[email_validator])
-    address = models.CharField(_('address'), max_length=150)
-    city = models.CharField(_('city'), max_length=24)
-    country = models.CharField(_('country'), max_length=24)
-    postal_code = models.PositiveSmallIntegerField(_('postal_code'))
-    sector = models.CharField(_('sector'), max_length=80)
-    creation_date = models.DateTimeField(_('creation_date'), auto_now_add=True, null=False)
+    address = models.CharField(_('address'), max_length=150, null=True, blank=True)
+    city = models.CharField(_('city'), max_length=24, null=True, blank=True)
+    country = models.CharField(_('country'), max_length=24, null=True, blank=True)
+    postal_code = models.PositiveSmallIntegerField(_('postalCode'), null=True, blank=True, db_column='postalCode')
+    sector = models.CharField(_('sector'), max_length=80, null=True, blank=True)
+    creation_date = models.DateTimeField(_('creationDate'), auto_now_add=True, null=False, db_column='creationDate')
     active = models.BooleanField(_('active'), default=False)
 
     REQUIRED_FIELDS = ['uuid', 'name', 'cif', 'email']
