@@ -90,20 +90,3 @@ class TestUserEndpoints:
     def test_delete(self, client_as_admin: APIClient):
         response = client_as_admin[0].delete(f"{self.endpoint}")
         assert response.status_code == 405
-
-    # def test_list_without_permission(self, client: APIClient):
-    #     response = client.get(self.endpoint)
-    #     assert response == 403
-    #
-    # def test_list_non_existing(self):
-    #     pass
-    #
-    # def test_retrieve(self):
-    #     pass
-    #
-    # def test_update(self):
-    #     pass
-    #
-    # def test_delete(self):
-    #     pass
-    #
