@@ -2,10 +2,11 @@
 
 All notable changes will be documented in this file
 
-## [0.0.2](https://github.com/pablobascunana/youml-manager/compare/d34ac30...develop) (WIP)
+## [0.0.3](https://github.com/pablobascunana/youml-manager/compare/d34ac30...develop) (WIP)
 
 ### Added
 - [ML-34](https://youml.atlassian.net/browse/ML-34) Dependabot config
+- [ML-29](https://youml.atlassian.net/browse/ML-29) Update readme
 
 
 
