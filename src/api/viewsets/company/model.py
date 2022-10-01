@@ -18,9 +18,9 @@ class Company(ValidateModelMixin, models.Model):
     address = models.CharField(_('address'), max_length=150, null=True, blank=True)
     city = models.CharField(_('city'), max_length=24, null=True, blank=True)
     country = models.CharField(_('country'), max_length=24, null=True, blank=True)
-    postal_code = models.PositiveSmallIntegerField(_('postal_code'), null=True, blank=True)
+    postal_code = models.PositiveSmallIntegerField(_('postalCode'), null=True, blank=True, db_column='postalCode')
     sector = models.CharField(_('sector'), max_length=80, null=True, blank=True)
-    creation_date = models.DateTimeField(_('creation_date'), auto_now_add=True, null=False)
+    creation_date = models.DateTimeField(_('creationDate'), auto_now_add=True, null=False, db_column='creationDate')
     active = models.BooleanField(_('active'), default=False)
 
     REQUIRED_FIELDS = ['uuid', 'name', 'cif', 'email']
