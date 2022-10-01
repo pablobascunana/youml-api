@@ -4,7 +4,7 @@ from api.viewsets.company.model import Company
 
 
 class CompanySerializer(serializers.ModelSerializer):
-    postalCode = serializers.IntegerField(source="postal_code")
+    postalCode = serializers.IntegerField(source="postal_code", required=False)
 
     class Meta:
         model = Company

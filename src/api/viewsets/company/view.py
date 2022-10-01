@@ -14,6 +14,11 @@ class CompanyViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAllowed]
 
     @staticmethod
+    def list(request, *args, **kwargs):
+        # TODO FUTURE, for now it is not possible to get anything for companies
+        return Response(status=status.HTTP_403_FORBIDDEN)
+
+    @staticmethod
     def create(request, *args, **kwargs):
         CompanyService.create_company(request.data['company'])
         UserService.create_user(request.data['user'])
