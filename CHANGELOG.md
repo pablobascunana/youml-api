@@ -2,7 +2,7 @@
 
 All notable changes will be documented in this file
 
-## [0.0.2](https://github.com/pablobascunana/youml-manager/compare/d34ac30...develop) (WIP)
+## [0.0.2](https://github.com/pablobascunana/youml-manager/compare/d34ac30...develop) (01-10-2022)
 
 ### Added
 - [ML-28](https://youml.atlassian.net/browse/ML-28) Company model and company foreign key in user model
