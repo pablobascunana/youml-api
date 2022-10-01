@@ -6,6 +6,7 @@ All notable changes will be documented in this file
 
 ### Added
 - [ML-34](https://youml.atlassian.net/browse/ML-34) Dependabot config
+- [ML-29](https://youml.atlassian.net/browse/ML-29) Update readme
 
 
 
