@@ -6,6 +6,7 @@ from django.core.validators import EmailValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from api.viewsets.company.model import Company
 from users.viewsets.user.repository import UserRepository
 
 
@@ -26,8 +27,10 @@ class User(AbstractBaseUser):
     verified = models.BooleanField(_('verified'), default=False, null=False)
     active = models.PositiveSmallIntegerField(_('active'), default=0, null=False)
     role = models.CharField(_('role'), max_length=10, default=Roles.NORMAL, null=False)
-    login_attempts = models.PositiveSmallIntegerField(_('login_attempts'), default=0, null=False)
-    register_date = models.DateTimeField(_('register_date'), auto_now_add=True, null=False)
+    login_attempts = models.PositiveSmallIntegerField(_('loginAttempts'), default=0, null=False,
+                                                      db_column='loginAttempts')
+    register_date = models.DateTimeField(_('registerDate'), auto_now_add=True, null=False, db_column='registerDate')
+    company = models.ForeignKey(Company, on_delete=models.CASCADE, default=None, null=True, db_column='companyId')
 
     USERNAME_FIELD = 'username'
 
