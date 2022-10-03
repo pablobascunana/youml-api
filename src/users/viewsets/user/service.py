@@ -1,3 +1,5 @@
+import logging
+
 from django.contrib.auth import get_user_model
 from django.http import QueryDict
 
@@ -12,3 +14,4 @@ class UserService:
         user_serializer.is_valid(raise_exception=True)
         get_user_model().objects.create_user(name=user['name'], lastname=user['lastname'], email=user['email'],
                                              username=user['username'], password=user['password'], role=user['role'])
+        logging.info(f"UserService: The user with this email {user['email']} has been created successfully")

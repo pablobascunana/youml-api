@@ -1,6 +1,7 @@
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 
+from core.services.email import EmailService
 from users.models import User
 from users.viewsets.user.permissions import IsAllowed
 from users.viewsets.user.serializer import UserSerializer
@@ -20,4 +21,5 @@ class UserViewSet(viewsets.ModelViewSet):
     @staticmethod
     def create(request, *args, **kwargs):
         UserService.create_user(request.data)
-        return Response({}, status=status.HTTP_201_CREATED)
+        email_service = EmailService(request.data['email'])
+        return email_service.send_sendgrid_email()
