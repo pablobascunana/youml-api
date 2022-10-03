@@ -9,17 +9,13 @@ from sendgrid.helpers.mail import Mail
 
 class EmailService:
 
-    def __init__(self, receiver_email: str):
-        self.receiver_email = receiver_email
-        self.subject = 'Sending with Twilio SendGrid is Fun'
-        self.body = '<strong>and easy to do anywhere, even with Python</strong>'
-
-    def send_sendgrid_email(self):
+    @staticmethod
+    def send_sendgrid_email(receiver_email: str, subject: str, body: str) -> Response:
         message = Mail(
             from_email=os.environ.get('SENDER_EMAIL'),
-            to_emails=self.receiver_email,
-            subject=self.subject,
-            html_content=self.body)
+            to_emails=receiver_email,
+            subject=subject,
+            html_content=body)
         try:
             sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
             response = sg.send(message)
