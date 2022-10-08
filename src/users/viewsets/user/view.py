@@ -1,5 +1,3 @@
-import os
-
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 
@@ -26,5 +24,6 @@ class UserViewSet(viewsets.ModelViewSet):
     def create(request, *args, **kwargs):
         UserService.create_user(request.data)
         body = read_file(f"{settings.BASE_DIR}/templates/account_verification.html")
-        return EmailService().send_sendgrid_email(receiver_email=request.data['email'],
-                                                  subject='youML - Account verification', body=body)
+        email_service = EmailService()
+        return email_service.send_sendgrid_email(receiver_email=request.data['email'],
+                                                 subject='youML - Account verification', body=body)
