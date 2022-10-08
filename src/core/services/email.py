@@ -6,8 +6,18 @@ from rest_framework.response import Response
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
+from core.utils.file import read_file
+from core.utils.template_mapping import template_mapping
+
 
 class EmailService:
+
+    @staticmethod
+    def get_template(path: str) -> str:
+        template = read_file(path)
+        for key in template_mapping.keys():
+            template = template.replace(key, template_mapping[key])
+        return template
 
     @staticmethod
     def send_sendgrid_email(receiver_email: str, subject: str, body: str) -> Response:
