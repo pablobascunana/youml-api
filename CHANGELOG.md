@@ -7,8 +7,7 @@ All notable changes will be documented in this file
 ### Added
 - [ML-34](https://youml.atlassian.net/browse/ML-34) Dependabot config
 - [ML-29](https://youml.atlassian.net/browse/ML-29) Update readme
-
-
+- [ML-37](https://youml.atlassian.net/browse/ML-37) Send email, verification email template, create and verify token
 
 ## [0.0.2](https://github.com/pablobascunana/youml-manager/compare/d34ac30...develop) (01-10-2022)
 

@@ -17,6 +17,7 @@ python -m venv <venv name>
 ```shell
 pip install pipenv
 ```
+
 - Install dependencies
 
 ```shell

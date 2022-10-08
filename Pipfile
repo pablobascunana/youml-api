@@ -11,6 +11,7 @@ pytest = "*"
 model-bakery = "*"
 pytest-django = "*"
 python-dotenv = "*"
+sendgrid = "*"
 
 [dev-packages]
 
