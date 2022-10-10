@@ -2,7 +2,7 @@
 
 All notable changes will be documented in this file
 
-## [0.0.3](https://github.com/pablobascunana/youml-manager/compare/d34ac30...develop) (WIP)
+## [0.0.3](https://github.com/pablobascunana/youml-manager/compare/fee5783...3b365b1) (10-10-2022)
 
 ### Added
 - [ML-34](https://youml.atlassian.net/browse/ML-34) Dependabot config
@@ -10,7 +10,7 @@ All notable changes will be documented in this file
 - [ML-37](https://youml.atlassian.net/browse/ML-37) Send email, verification email template, create and verify token
 - [ML-38](https://youml.atlassian.net/browse/ML-38) User verification
 
-## [0.0.2](https://github.com/pablobascunana/youml-manager/compare/d34ac30...develop) (01-10-2022)
+## [0.0.2](https://github.com/pablobascunana/youml-manager/compare/d34ac30...fee5783) (01-10-2022)
 
 ### Added
 - [ML-28](https://youml.atlassian.net/browse/ML-28) Company model and company foreign key in user model
