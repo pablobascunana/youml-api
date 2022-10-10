@@ -51,7 +51,7 @@ pytest src/tests
 pytest --cov-report term-missing --cov-config=.coveragerc --cov=src src/tests
 ```
 
-- TO run tests with coverage in HTML files
+- To run tests with coverage in HTML files
 
 ```shell
 pytest src/tests --cov=src --cov-config=.coveragerc --cov-report=html:.test-results
