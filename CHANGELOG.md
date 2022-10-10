@@ -7,6 +7,7 @@ All notable changes will be documented in this file
 ### Changed
 - [ML-43](https://youml.atlassian.net/browse/ML-43) Rename user table and delete action field in company table
 - [ML-44](https://youml.atlassian.net/browse/ML-44) Implement JWT to user verification
+- [ML-39](https://youml.atlassian.net/browse/ML-39) Move permissions to core package
 
 ## [0.0.3](https://github.com/pablobascunana/youml-manager/compare/fee5783...3b365b1) (10-10-2022)
 
