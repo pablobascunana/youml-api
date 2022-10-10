@@ -35,11 +35,10 @@ class UserViewSet(viewsets.ModelViewSet):
     @action(methods=["get"], name="User validation", url_path='validate', url_name="Validate email user", detail=False,
             permission_classes=[AllowAny])
     def validate(self, request):
-        user = self.user_service.get_user(request.GET.get('uuid'))
-        if not user.verified and self.user_service.check_validation_jwt(request.GET.get('token')):
-            user.verified = True
-            user.active = True
-            user.save()
+        payload = self.user_service.check_validation_jwt(request.GET.get('token'))
+        user = self.user_service.get_user(payload['uuid'])
+        if not user.verified:
+            self.user_service.active_user(user)
             # TODO will be a redirect
             return Response({}, status=status.HTTP_200_OK)
         return Response({}, status=status.HTTP_403_FORBIDDEN)
