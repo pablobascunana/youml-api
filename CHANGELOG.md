@@ -4,6 +4,9 @@ All notable changes will be documented in this file
 
 ## [0.0.4](https://github.com/pablobascunana/youml-manager/compare/3b365b1...develop) (WIP)
 
+### Added
+- [ML-40](https://youml.atlassian.net/browse/ML-40) Pytest coverage and HTML reports
+
 ### Changed
 - [ML-43](https://youml.atlassian.net/browse/ML-43) Rename user table and delete action field in company table
 - [ML-44](https://youml.atlassian.net/browse/ML-44) Implement JWT to user verification

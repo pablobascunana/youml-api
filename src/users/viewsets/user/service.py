@@ -57,7 +57,7 @@ class RegisterUserService:
     @staticmethod
     def check_validation_jwt(token: str) -> Union[Dict, bool]:
         try:
-            return jwt.decode(token, os.getenv('JWT_USER_VALIDATION'), algorithms=["HS256"], verify_signature=True)
+            return jwt.decode(token, os.getenv('JWT_USER_VALIDATION'), algorithms=["HS256"])
         except (DecodeError, ExpiredSignatureError):
             return False
 
