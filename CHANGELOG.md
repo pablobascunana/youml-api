@@ -2,7 +2,7 @@
 
 All notable changes will be documented in this file
 
-## [0.0.4](https://github.com/pablobascunana/youml-manager/compare/3b365b1...develop) (WIP)
+## [0.0.4](https://github.com/pablobascunana/youml-manager/compare/3b365b1...develop) (10-10-2022)
 
 ### Added
 - [ML-40](https://youml.atlassian.net/browse/ML-40) Pytest coverage and HTML reports
