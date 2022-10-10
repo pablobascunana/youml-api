@@ -7,7 +7,7 @@ from api.viewsets.company.serializer import CompanySerializer
 from api.viewsets.company.service import CompanyService
 from core.services.email import EmailService
 from core.utils.file import replace_keys
-from core.permissions.is_allowed import IsAllowed
+from core.permissions import IsAllowed
 from users.viewsets.user.service import RegisterUserService
 
 
