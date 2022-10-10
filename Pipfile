@@ -13,6 +13,7 @@ pytest-django = "*"
 python-dotenv = "*"
 sendgrid = "*"
 pyjwt = "*"
+pytest-cov = "*"
 
 [dev-packages]
 
