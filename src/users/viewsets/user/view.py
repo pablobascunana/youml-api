@@ -41,5 +41,6 @@ class UserViewSet(viewsets.ModelViewSet):
             user.verified = True
             user.active = True
             user.save()
+            # TODO will be a redirect
             return Response({}, status=status.HTTP_200_OK)
         return Response({}, status=status.HTTP_403_FORBIDDEN)
