@@ -25,11 +25,10 @@ class UserViewSet(viewsets.ModelViewSet):
         return Response(status=status.HTTP_403_FORBIDDEN)
 
     def create(self, request, *args, **kwargs):
-        user, token = self.user_service.create_user(request.data)
+        token = self.user_service.create_user(request.data)
         email_service = EmailService()
         body = email_service.get_template(f"{settings.BASE_DIR}/templates/account_verification.html")
         body = replace_keys(body, '##VERIFICATION_TOKEN##', token)
-        body = replace_keys(body, '##USER_UUID##', str(user.uuid))
         return email_service.send_sendgrid_email(receiver_email=request.data['email'],
                                                  subject='youML - Account verification', body=body)
 
