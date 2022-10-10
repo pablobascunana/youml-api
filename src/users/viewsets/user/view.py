@@ -1,10 +1,15 @@
 from rest_framework import viewsets, status
+from rest_framework.decorators import action
+from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 
+from core.services.email import EmailService
+from core.utils.file import replace_keys
 from users.models import User
 from users.viewsets.user.permissions import IsAllowed
 from users.viewsets.user.serializer import UserSerializer
-from users.viewsets.user.service import UserService
+from users.viewsets.user.service import RegisterUserService
+from django.conf import settings
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -12,12 +17,30 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     permission_classes = [IsAllowed]
 
+    user_service = RegisterUserService()
+
     @staticmethod
     def list(request, *args, **kwargs):
         # TODO FUTURE, maybe it is possible to return all user list if the request is requested by an admin user
         return Response(status=status.HTTP_403_FORBIDDEN)
 
-    @staticmethod
-    def create(request, *args, **kwargs):
-        UserService.create_user(request.data)
-        return Response({}, status=status.HTTP_201_CREATED)
+    def create(self, request, *args, **kwargs):
+        user, token = self.user_service.create_user(request.data)
+        email_service = EmailService()
+        body = email_service.get_template(f"{settings.BASE_DIR}/templates/account_verification.html")
+        body = replace_keys(body, '##VERIFICATION_TOKEN##', token)
+        body = replace_keys(body, '##USER_UUID##', str(user.uuid))
+        return email_service.send_sendgrid_email(receiver_email=request.data['email'],
+                                                 subject='youML - Account verification', body=body)
+
+    @action(methods=["get"], name="User validation", url_path='validate', url_name="Validate email user", detail=False,
+            permission_classes=[AllowAny])
+    def validate(self, request):
+        user = self.user_service.get_user(request.GET.get('uuid'))
+        if not user.verified and self.user_service.check_validation_token(user, request.GET.get('token')):
+            user.verified = True
+            user.active = True
+            user.save()
+            # TODO will be a redirect
+            return Response({}, status=status.HTTP_200_OK)
+        return Response({}, status=status.HTTP_403_FORBIDDEN)

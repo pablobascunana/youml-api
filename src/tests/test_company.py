@@ -18,7 +18,7 @@ class TestUserEndpoints:
         response = client_as_admin[0].get(self.endpoint)
         assert response.status_code == 403
 
-    def test_list_get_companies_with_permission(self, client_as_admin: APIClient):
+    def test_list_get_companies_not_found(self, client_as_admin: APIClient):
         response = client_as_admin[0].get(f"{self.endpoint}/11111")
         assert response.status_code == 404
 
@@ -36,7 +36,7 @@ class TestUserEndpoints:
                 "password": "user_password", "role": "ADMIN"}
         body = {"company": company, "user": user}
         response = client.post(f"{self.endpoint}", body, format='json')
-        assert response.status_code == 201
+        assert response.status_code == 202
 
     def test_list_create_company_and_user_with_existing_company_unique_fields(self, client: APIClient, company: Company,
                                                                               company_user: User):

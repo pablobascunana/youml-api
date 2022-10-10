@@ -1,13 +1,16 @@
 import pytest
 from django.forms import model_to_dict
+from model_bakery import baker
 from rest_framework.test import APIClient
 
 from users.models import User
+from users.viewsets.user.service import RegisterUserService
 
 
 @pytest.mark.django_db
 class TestUserEndpoints:
     endpoint = '/users/v1/user'
+    validate_endpoint = '/users/v1/user/validate'
     username_exists = 'user with this username already exists.'
     email_exists = 'user with this email already exists.'
 
@@ -68,7 +71,7 @@ class TestUserEndpoints:
         user = {"username": "username", "name": "name", "lastname": "lastname", "email": "user_email@email.com",
                 "password": "user_password", "role": "ADMIN"}
         response = client_as_admin[0].post(f"{self.endpoint}", user)
-        assert response.status_code == 201
+        assert response.status_code == 202
 
     def test_update(self, client_as_admin: APIClient):
         response = client_as_admin[0].put(f"{self.endpoint}")
@@ -77,3 +80,15 @@ class TestUserEndpoints:
     def test_delete(self, client_as_admin: APIClient):
         response = client_as_admin[0].delete(f"{self.endpoint}")
         assert response.status_code == 405
+
+    def test_validate(self, client_as_user: APIClient):
+        user = baker.make(User)
+        token = RegisterUserService().create_validation_token(user)
+        response = client_as_user[0].get(f"{self.validate_endpoint}?token={token}&uuid={str(user.uuid)}")
+        assert response.status_code == 200
+
+    def test_validate_forbidden(self, client_as_user: APIClient):
+        user = baker.make(User, active=True, verified=True)
+        token = RegisterUserService().create_validation_token(user)
+        response = client_as_user[0].get(f"{self.validate_endpoint}?token={token}&uuid={str(user.uuid)}")
+        assert response.status_code == 403
