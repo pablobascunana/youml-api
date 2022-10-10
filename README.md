@@ -45,8 +45,14 @@ python src/manage.py runserve
 pytest src/tests
 ```
 
-- To run tests with coverage
+- To run tests with coverage in console
 
 ```shell
-pytest src/tests --cov=src --cov-report=xml:.test-result/coverage.xml --junitxml=.test-result/results.xml
+pytest --cov-report term-missing --cov-config=.coveragerc --cov=src src/tests
+```
+
+- TO run tests with coverage in HTML files
+
+```shell
+pytest src/tests --cov=src --cov-config=.coveragerc --cov-report=html:.test-results
 ```
