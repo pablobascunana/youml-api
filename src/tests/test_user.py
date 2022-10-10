@@ -83,12 +83,12 @@ class TestUserEndpoints:
 
     def test_validate(self, client_as_user: APIClient):
         user = baker.make(User)
-        token = RegisterUserService().create_validation_token(user)
+        token = RegisterUserService().create_validation_jwt(user)
         response = client_as_user[0].get(f"{self.validate_endpoint}?token={token}&uuid={str(user.uuid)}")
         assert response.status_code == 200
 
     def test_validate_forbidden(self, client_as_user: APIClient):
         user = baker.make(User, active=True, verified=True)
-        token = RegisterUserService().create_validation_token(user)
+        token = RegisterUserService().create_validation_jwt(user)
         response = client_as_user[0].get(f"{self.validate_endpoint}?token={token}&uuid={str(user.uuid)}")
         assert response.status_code == 403

@@ -21,7 +21,6 @@ class Company(ValidateModelMixin, models.Model):
     postal_code = models.PositiveSmallIntegerField(_('postalCode'), null=True, blank=True, db_column='postalCode')
     sector = models.CharField(_('sector'), max_length=80, null=True, blank=True)
     creation_date = models.DateTimeField(_('creationDate'), auto_now_add=True, null=False, db_column='creationDate')
-    active = models.BooleanField(_('active'), default=False)
 
     REQUIRED_FIELDS = ['uuid', 'name', 'cif', 'email']
 
