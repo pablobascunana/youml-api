@@ -1,9 +1,12 @@
 import logging
+import os
+
+import jwt
 from typing import Tuple
 
 from django.contrib.auth import get_user_model
-from django.contrib.auth.tokens import default_token_generator
 from django.http import QueryDict
+from jwt import DecodeError, InvalidSignatureError, ExpiredSignatureError
 
 from users.models import User
 from users.viewsets.user.serializer import UserSerializer
@@ -17,7 +20,7 @@ class RegisterUserService:
                                                             email=user['email'], username=user['username'],
                                                             password=user['password'], role=user['role'])
         logging.info(f"UserService: The user with this email {user['email']} has been created successfully")
-        return created_user, self.create_validation_token(created_user)
+        return created_user, self.create_validation_jwt(created_user)
 
     def create_company_user(self, user: QueryDict) -> Tuple[User, str]:
         self.validate_user(user)
@@ -27,7 +30,7 @@ class RegisterUserService:
                                                                     company_uuid=user['company_uuid'])
         logging.info(f"UserService: The user with this email {user['email']} and belong to this company id "
                      f"{user['company_uuid']} has been created successfully")
-        return created_user, self.create_validation_token(created_user)
+        return created_user, self.create_validation_jwt(created_user)
 
     @staticmethod
     def validate_user(user: QueryDict):
@@ -39,9 +42,14 @@ class RegisterUserService:
         return User.objects.filter(pk=uuid)[0]
 
     @staticmethod
-    def create_validation_token(user: User) -> str:
-        return default_token_generator.make_token(user)
+    def create_validation_jwt(user: User) -> str:
+        return jwt.encode({"uuid": str(user.uuid)}, os.getenv('JWT_USER_VALIDATION'), algorithm="HS256")
 
     @staticmethod
-    def check_validation_token(user: User, token: str) -> bool:
-        return default_token_generator.check_token(user, token)
+    def check_validation_jwt(token: str) -> bool:
+        try:
+            jwt.decode(token, os.getenv('JWT_USER_VALIDATION'), algorithms=["HS256"], verify_signature=True)
+            return True
+        except (DecodeError, ExpiredSignatureError):
+            return False
+
