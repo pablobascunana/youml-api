@@ -1,3 +1,4 @@
+import datetime
 import logging
 import os
 
@@ -6,7 +7,7 @@ from typing import Tuple
 
 from django.contrib.auth import get_user_model
 from django.http import QueryDict
-from jwt import DecodeError, InvalidSignatureError, ExpiredSignatureError
+from jwt import DecodeError, ExpiredSignatureError
 
 from users.models import User
 from users.viewsets.user.serializer import UserSerializer
@@ -43,7 +44,9 @@ class RegisterUserService:
 
     @staticmethod
     def create_validation_jwt(user: User) -> str:
-        return jwt.encode({"uuid": str(user.uuid)}, os.getenv('JWT_USER_VALIDATION'), algorithm="HS256")
+        exp_timestamp = datetime.datetime.now(tz=datetime.timezone.utc) + datetime.timedelta(days=1)
+        return jwt.encode({'exp': exp_timestamp, 'uuid': str(user.uuid)}, os.getenv('JWT_USER_VALIDATION'),
+                          algorithm="HS256")
 
     @staticmethod
     def check_validation_jwt(token: str) -> bool:
