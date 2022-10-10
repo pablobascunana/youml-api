@@ -12,6 +12,7 @@ model-bakery = "*"
 pytest-django = "*"
 python-dotenv = "*"
 sendgrid = "*"
+pyjwt = "*"
 
 [dev-packages]
 
