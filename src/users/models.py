@@ -39,5 +39,5 @@ class User(AbstractBaseUser):
     objects = UserRepository()
 
     class Meta:
-        db_table = 'users'
+        db_table = 'user'
         unique_together = ('email', 'username', 'uuid')
