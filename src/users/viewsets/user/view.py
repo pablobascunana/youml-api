@@ -37,7 +37,7 @@ class UserViewSet(viewsets.ModelViewSet):
             permission_classes=[AllowAny])
     def validate(self, request):
         user = self.user_service.get_user(request.GET.get('uuid'))
-        if not user.verified and self.user_service.check_validation_token(user, request.GET.get('token')):
+        if not user.verified and self.user_service.check_validation_jwt(request.GET.get('token')):
             user.verified = True
             user.active = True
             user.save()
