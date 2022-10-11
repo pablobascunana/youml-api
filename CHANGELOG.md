@@ -2,7 +2,12 @@
 
 All notable changes will be documented in this file
 
-## [0.0.4](https://github.com/pablobascunana/youml-manager/compare/3b365b1...develop) (10-10-2022)
+## [0.0.5](https://github.com/pablobascunana/youml-manager/compare/fdf8a8d...develop) (WIP)
+
+### Added
+- [ML-19](https://youml.atlassian.net/browse/ML-19) Login endpoint
+
+## [0.0.4](https://github.com/pablobascunana/youml-manager/compare/3b365b1...fdf8a8d) (10-10-2022)
 
 ### Added
 - [ML-40](https://youml.atlassian.net/browse/ML-40) Pytest coverage and HTML reports
