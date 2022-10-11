@@ -41,18 +41,18 @@ class RegisterUserService:
     def verify_and_activate_user(self, user: User):
         user.verified = True
         user.active = True
-        self.update_user(user)
+        self.save_user(user)
 
     def activate_or_deactivate_user(self, user: User, active: bool):
         user.active = active
-        self.update_user(user)
+        self.save_user(user)
 
     def update_login_attempts(self, user: User, attempts: int):
         user.login_attempts = attempts
-        self.update_user(user)
+        self.save_user(user)
 
     @staticmethod
-    def update_user(user: User):
+    def save_user(user: User):
         user.save()
 
     @staticmethod
