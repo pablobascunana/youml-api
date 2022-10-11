@@ -25,12 +25,12 @@ class AuthViewSet(viewsets.ModelViewSet):
                 user.last_login = timezone.now()
                 self.user_service.update_login_attempts(user, 0)
                 return Response(status=status.HTTP_200_OK)
-
-        user = self.get_queryset().filter(username=request.data['username'])
-        if user.exists() and user.login_attempts < ATTEMPTS:
-            attempts = user.login_attempts + 1
-            self.user_service.update_login_attempts(user, attempts)
-            if user.login_attempts == ATTEMPTS:
-                self.user_service.activate_or_deactivate_user(user, False)
+        else:
+            user = self.get_queryset().filter(username=request.data['username'])
+            if user.exists() and user.login_attempts < ATTEMPTS:
+                attempts = user.login_attempts + 1
+                self.user_service.update_login_attempts(user, attempts)
+                if user.login_attempts == ATTEMPTS:
+                    self.user_service.activate_or_deactivate_user(user, False)
 
         return Response(status=status.HTTP_403_FORBIDDEN)
