@@ -25,7 +25,7 @@ class User(AbstractBaseUser):
     email = models.EmailField(_('email'), max_length=80, unique=True, null=False, validators=[email_validator])
     password = models.CharField(_('password'), max_length=150, null=False)
     verified = models.BooleanField(_('verified'), default=False, null=False)
-    active = models.PositiveSmallIntegerField(_('active'), default=0, null=False)
+    active = models.BooleanField(_('active'), default=False, null=False)
     role = models.CharField(_('role'), max_length=10, default=Roles.NORMAL, null=False)
     login_attempts = models.PositiveSmallIntegerField(_('loginAttempts'), default=0, null=False,
                                                       db_column='loginAttempts')
