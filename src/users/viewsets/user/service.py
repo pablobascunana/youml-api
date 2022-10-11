@@ -39,10 +39,6 @@ class RegisterUserService:
         user_serializer.is_valid(raise_exception=True)
 
     @staticmethod
-    def get_user(uuid: str) -> User:
-        return User.objects.filter(pk=uuid)[0]
-
-    @staticmethod
     def active_user(user: User):
         user.verified = True
         user.active = True
