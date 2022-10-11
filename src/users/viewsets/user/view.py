@@ -38,7 +38,7 @@ class UserViewSet(viewsets.ModelViewSet):
         payload = self.user_service.check_validation_jwt(request.GET.get('token'))
         user = self.get_queryset().filter(pk=payload['uuid'])[0]
         if not user.verified:
-            self.user_service.active_user(user)
+            self.user_service.verify_and_activate_user(user)
             # TODO will be a redirect
             return Response({}, status=status.HTTP_200_OK)
         return Response({}, status=status.HTTP_403_FORBIDDEN)
