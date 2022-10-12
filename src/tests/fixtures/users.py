@@ -15,3 +15,9 @@ def user_admin() -> User:
 def user() -> User:
     return baker.make(User, email="user@email.com", username="user", name="user", lastname="user",
                       password="fake_password", role="NORMAL")
+
+
+@pytest.fixture
+def inactive_user() -> User:
+    return baker.make(User, email="user@email.com", username="user", name="user", lastname="user", verified=True,
+                      active=False, login_attempts=5, password="fake_password", role="NORMAL")
