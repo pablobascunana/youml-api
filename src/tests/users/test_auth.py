@@ -13,9 +13,8 @@ class TestUserEndpoints:
         response = client.get(f"{self.endpoint}")
         assert response.status_code == 403
 
-    @pytest.mark.skip(reason="I can't authenticate")
     def test_login(self, client_as_admin: APIClient):
-        user = {'username': client_as_admin[1].username, 'password': client_as_admin[1].password}
+        user = {'username': client_as_admin[1].username, 'password': 'fake_password'}
         response = client_as_admin[0].post(f"{self.endpoint}", user)
         assert response.status_code == 200
 

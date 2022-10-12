@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate
+from django.contrib.auth.hashers import check_password
 from django.utils import timezone
 from rest_framework import viewsets, status
 from rest_framework.response import Response
@@ -30,7 +31,7 @@ class AuthViewSet(viewsets.ModelViewSet):
             if user and user.login_attempts < ATTEMPTS:
                 attempts = user.login_attempts + 1
                 self.user_service.update_login_attempts(user, attempts)
-            if user.login_attempts == ATTEMPTS:
+            if user and user.login_attempts == ATTEMPTS:
                 self.user_service.activate_or_deactivate_user(user, False)
 
         return Response(status=status.HTTP_403_FORBIDDEN)
