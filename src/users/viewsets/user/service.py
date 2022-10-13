@@ -38,14 +38,21 @@ class RegisterUserService:
         user_serializer = UserSerializer(data=user)
         user_serializer.is_valid(raise_exception=True)
 
-    @staticmethod
-    def get_user(uuid: str) -> User:
-        return User.objects.filter(pk=uuid)[0]
-
-    @staticmethod
-    def active_user(user: User):
+    def verify_and_activate_user(self, user: User):
         user.verified = True
         user.active = True
+        self.save_user(user)
+
+    def activate_or_deactivate_user(self, user: User, active: bool):
+        user.active = active
+        self.save_user(user)
+
+    def update_login_attempts(self, user: User, attempts: int):
+        user.login_attempts = attempts
+        self.save_user(user)
+
+    @staticmethod
+    def save_user(user: User):
         user.save()
 
     @staticmethod
@@ -60,4 +67,3 @@ class RegisterUserService:
             return jwt.decode(token, os.getenv('JWT_USER_VALIDATION'), algorithms=["HS256"])
         except (DecodeError, ExpiredSignatureError):
             return False
-
