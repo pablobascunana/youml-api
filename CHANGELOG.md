@@ -5,7 +5,10 @@ All notable changes will be documented in this file
 ## [0.0.6](https://github.com/pablobascunana/youml-manager/compare/34864f4...develop) (WIP)
 
 ### Added
-- [ML-58](https://youml.atlassian.net/browse/ML-50) Change field CompanyId to company in user table
+- [ML-49](https://youml.atlassian.net/browse/ML-49) Project model
+
+### Changed
+- [ML-58](https://youml.atlassian.net/browse/ML-58) Change field CompanyId to company in user table
 
 ## [0.0.5](https://github.com/pablobascunana/youml-manager/compare/fdf8a8d...34864f4) (13-10-2022)
 
