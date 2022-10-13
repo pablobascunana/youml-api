@@ -12,6 +12,5 @@ class CompanyService:
     def create_company(company: QueryDict) -> Dict:
         company_serializer = CompanySerializer(data=company)
         company_serializer.is_valid(raise_exception=True)
-        company_serializer.save()
-        return company_serializer.data
+        return Company.objects.create(**company_serializer.validated_data)
 
