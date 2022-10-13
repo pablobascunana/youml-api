@@ -28,9 +28,9 @@ class RegisterUserService:
         created_user = get_user_model().objects.create_company_user(name=user['name'], lastname=user['lastname'],
                                                                     email=user['email'], username=user['username'],
                                                                     password=user['password'], role=user['role'],
-                                                                    company_uuid=user['company_uuid'])
+                                                                    company=user['company'])
         logging.info(f"UserService: The user with this email {user['email']} and belong to this company id "
-                     f"{user['company_uuid']} has been created successfully")
+                     f"{user['company'].uuid} has been created successfully")
         return self.create_validation_jwt(created_user)
 
     @staticmethod
