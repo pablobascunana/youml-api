@@ -2,7 +2,7 @@
 
 All notable changes will be documented in this file
 
-## [0.0.5](https://github.com/pablobascunana/youml-manager/compare/fdf8a8d...develop) (WIP)
+## [0.0.5](https://github.com/pablobascunana/youml-manager/compare/fdf8a8d...develop) (13-10-2022)
 
 ### Added
 - [ML-19](https://youml.atlassian.net/browse/ML-19) Login endpoint
