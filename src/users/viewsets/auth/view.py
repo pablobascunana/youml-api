@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.hashers import check_password
 from django.utils import timezone
 from rest_framework import viewsets, status
@@ -23,6 +23,7 @@ class AuthViewSet(viewsets.ModelViewSet):
     def create(self, request, *args, **kwargs):
         if user := authenticate(username=request.data['username'], password=request.data['password']):
             if user.active:
+                login(request, user)
                 user.last_login = timezone.now()
                 self.user_service.update_login_attempts(user, 0)
                 return Response(status=status.HTTP_200_OK)
