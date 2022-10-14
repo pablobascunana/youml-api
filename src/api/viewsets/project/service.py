@@ -11,4 +11,3 @@ class ProjectService:
         project_serializer.is_valid(raise_exception=True)
         project_serializer.save()
         return project_serializer.data
-

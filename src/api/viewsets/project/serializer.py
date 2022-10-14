@@ -9,8 +9,8 @@ class ProjectSerializer(serializers.ModelSerializer):
         return {
             "uuid": value.uuid,
             "name": value.name,
-            "creationDate": value.creation_date.strftime("%d-%m-%Y %H:%M:%S"),
-            "user": value.user.uuid
+            "createdAt": value.created_at.strftime("%d-%m-%Y %H:%M:%S"),
+            "user": value.user_id
         }
 
     class Meta:
