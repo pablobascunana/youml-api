@@ -3,13 +3,14 @@ from django.contrib.auth.hashers import make_password
 
 from model_bakery import baker
 
+from api.viewsets.company.model import Company
 from users.models import User
 
 
 @pytest.fixture()
-def user_admin() -> User:
+def user_admin(company: Company) -> User:
     return baker.make(User, email='admin@email.com', username='user_admin', name='user', lastname='admin',
-                      password=make_password('fake_password'), role='ADMIN', active=True)
+                      password=make_password('fake_password'), role='ADMIN', active=True, company=company)
 
 
 @pytest.fixture

@@ -30,7 +30,7 @@ class User(AbstractBaseUser):
     login_attempts = models.PositiveSmallIntegerField(_('loginAttempts'), default=0, null=False,
                                                       db_column='loginAttempts')
     register_date = models.DateTimeField(_('registerDate'), auto_now_add=True, null=False, db_column='registerDate')
-    company = models.ForeignKey(Company, on_delete=models.CASCADE, default=None, null=True, db_column='companyId')
+    company = models.ForeignKey(Company, on_delete=models.CASCADE, default=None, null=True, db_column='company')
 
     USERNAME_FIELD = 'username'
 

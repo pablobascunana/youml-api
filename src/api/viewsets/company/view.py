@@ -25,7 +25,7 @@ class CompanyViewSet(viewsets.ModelViewSet):
     def create(request, *args, **kwargs):
         created_company = CompanyService.create_company(request.data['company'])
         user = request.data['user']
-        user['company_uuid'] = created_company['uuid']
+        user['company'] = created_company
         token = RegisterUserService().create_company_user(user)
         email_service = EmailService()
         body = email_service.get_template(f"{settings.BASE_DIR}/templates/account_verification.html")

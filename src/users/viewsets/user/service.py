@@ -6,6 +6,7 @@ import jwt
 from typing import Dict, Union
 
 from django.contrib.auth import get_user_model
+from django.db.models import QuerySet
 from django.http import QueryDict
 from jwt import DecodeError, ExpiredSignatureError
 
@@ -28,10 +29,14 @@ class RegisterUserService:
         created_user = get_user_model().objects.create_company_user(name=user['name'], lastname=user['lastname'],
                                                                     email=user['email'], username=user['username'],
                                                                     password=user['password'], role=user['role'],
-                                                                    company_uuid=user['company_uuid'])
+                                                                    company=user['company'])
         logging.info(f"UserService: The user with this email {user['email']} and belong to this company id "
-                     f"{user['company_uuid']} has been created successfully")
+                     f"{user['company'].uuid} has been created successfully")
         return self.create_validation_jwt(created_user)
+
+    @staticmethod
+    def get_users_by_company_id(company_id: str) -> QuerySet:
+        return User.objects.filter(company=company_id)
 
     @staticmethod
     def validate_user(user: QueryDict):

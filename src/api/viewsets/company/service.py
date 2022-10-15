@@ -9,9 +9,8 @@ from api.viewsets.company.serializer import CompanySerializer
 class CompanyService:
 
     @staticmethod
-    def create_company(company: QueryDict) -> Dict:
+    def create_company(company: QueryDict) -> Company:
         company_serializer = CompanySerializer(data=company)
         company_serializer.is_valid(raise_exception=True)
-        company_serializer.save()
-        return company_serializer.data
+        return Company.objects.create(**company_serializer.validated_data)
 

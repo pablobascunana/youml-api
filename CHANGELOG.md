@@ -2,7 +2,18 @@
 
 All notable changes will be documented in this file
 
-## [0.0.5](https://github.com/pablobascunana/youml-manager/compare/fdf8a8d...develop) (13-10-2022)
+## [0.0.6](https://github.com/pablobascunana/youml-manager/compare/34864f4...develop) (15-10-2022)
+
+### Added
+- [ML-49](https://youml.atlassian.net/browse/ML-49) Project model
+- [ML-50](https://youml.atlassian.net/browse/ML-50) Create project endpoint
+- [ML-51](https://youml.atlassian.net/browse/ML-51) Get projects endpoint
+
+### Changed
+- [ML-58](https://youml.atlassian.net/browse/ML-58) Change field CompanyId to company in user table
+- [ML-51](https://youml.atlassian.net/browse/ML-51) Update createdDate to cratedAt fields in company and project tables
+
+## [0.0.5](https://github.com/pablobascunana/youml-manager/compare/fdf8a8d...34864f4) (13-10-2022)
 
 ### Added
 - [ML-19](https://youml.atlassian.net/browse/ML-19) Login endpoint

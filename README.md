@@ -36,7 +36,7 @@ If you use PyCharm you have all available commands for this project inside **.ru
 - To start server
 
 ```shell
-python src/manage.py runserve 
+python src/manage.py runserve
 ```
 
 - To run tests without coverage
