@@ -5,6 +5,7 @@ All notable changes will be documented in this file
 ## [0.0.7](https://github.com/pablobascunana/youml-manager/compare/cd3a3b9...develop) (WIP)
 
 ### Added
+- [ML-61](https://youml.atlassian.net/browse/ML-61) Dataset model
 
 ## [0.0.6](https://github.com/pablobascunana/youml-manager/compare/34864f4...cd3a3b9) (15-10-2022)
 
