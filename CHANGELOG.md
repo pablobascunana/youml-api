@@ -2,7 +2,7 @@
 
 All notable changes will be documented in this file
 
-## [0.0.6](https://github.com/pablobascunana/youml-manager/compare/34864f4...develop) (WIP)
+## [0.0.6](https://github.com/pablobascunana/youml-manager/compare/34864f4...develop) (15-10-2022)
 
 ### Added
 - [ML-49](https://youml.atlassian.net/browse/ML-49) Project model
