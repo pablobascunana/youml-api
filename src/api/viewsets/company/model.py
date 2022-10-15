@@ -2,6 +2,7 @@ import uuid
 
 from django.core.validators import EmailValidator
 from django.db import models
+from django.utils import timezone
 
 from django.utils.translation import gettext_lazy as _
 
@@ -20,7 +21,7 @@ class Company(ValidateModelMixin, models.Model):
     country = models.CharField(_('country'), max_length=24, null=True, blank=True)
     postal_code = models.PositiveSmallIntegerField(_('postalCode'), null=True, blank=True, db_column='postalCode')
     sector = models.CharField(_('sector'), max_length=80, null=True, blank=True)
-    creation_date = models.DateTimeField(_('creationDate'), auto_now_add=True, null=False, db_column='creationDate')
+    created_at = models.DateTimeField(_('createdAt'), default=timezone.now, db_column='createdAt')
 
     REQUIRED_FIELDS = ['uuid', 'name', 'cif', 'email']
 

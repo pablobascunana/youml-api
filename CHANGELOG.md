@@ -7,6 +7,7 @@ All notable changes will be documented in this file
 ### Added
 - [ML-49](https://youml.atlassian.net/browse/ML-49) Project model
 - [ML-50](https://youml.atlassian.net/browse/ML-50) Create project endpoint
+- [ML-51](https://youml.atlassian.net/browse/ML-50) Get projects endpoint
 
 ### Changed
 - [ML-58](https://youml.atlassian.net/browse/ML-58) Change field CompanyId to company in user table
