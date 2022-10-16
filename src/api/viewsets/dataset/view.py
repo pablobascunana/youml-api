@@ -10,7 +10,8 @@ class DatasetViewSet(viewsets.ModelViewSet):
     queryset = Dataset.objects.all()
     serializer_class = DatasetSerializer
 
-    def list(self, request, *args, **kwargs):
+    @staticmethod
+    def list(request, *args, **kwargs):
         return Response(status=status.HTTP_403_FORBIDDEN)
 
     @staticmethod
