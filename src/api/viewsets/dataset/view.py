@@ -10,6 +10,9 @@ class DatasetViewSet(viewsets.ModelViewSet):
     queryset = Dataset.objects.all()
     serializer_class = DatasetSerializer
 
+    def list(self, request, *args, **kwargs):
+        return Response(status=status.HTTP_403_FORBIDDEN)
+
     @staticmethod
     def create(request, *args, **kwargs):
         dataset = {'name': request.data['name'], 'user': request.user.uuid, 'project': request.data['project']}
