@@ -6,6 +6,7 @@ All notable changes will be documented in this file
 
 ### Added
 * [ML-61](https://youml.atlassian.net/browse/ML-61) Dataset model
+* [ML-62](https://youml.atlassian.net/browse/ML-62) Create dataset endpoint
 
 
 ## [0.0.6](https://github.com/pablobascunana/youml-manager/compare/34864f4...cd3a3b9) (15-10-2022)
