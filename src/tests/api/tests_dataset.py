@@ -12,9 +12,22 @@ class TestUserEndpoints:
 
     DATASET_NAME = 'My dataset'
 
-    def test_list_as_admin_user(self, client_as_admin: APIClient):
-        response = client_as_admin[0].get(self.endpoint)
+    def test_list_as_admin_user(self, client_as_admin: APIClient, project: Project):
+        response = client_as_admin[0].get(f"{self.endpoint}?project={project.pk}")
+        assert response.status_code == 200
+
+    def test_list_as_normal_user(self, client_as_user: APIClient, project: Project):
+        response = client_as_user[0].get(f"{self.endpoint}?project={project.pk}")
+        assert response.status_code == 200
+
+    def test_list_projects_without_permission(self, client: APIClient, project: Project):
+        response = client.get(f"{self.endpoint}?project={project.pk}")
         assert response.status_code == 403
+
+    def test_create_project(self, client_as_user: APIClient):
+        body = {"name": self.PROJECT_NAME, "user": str(client_as_user[1].uuid)}
+        response = client_as_user[0].post(f"{self.endpoint}", body, format='json')
+        assert response.status_code == 201
 
     def test_create_project(self, client_as_user: APIClient, project: Project):
         body = {"name": self.DATASET_NAME, "user": str(client_as_user[1].uuid), "project": project.pk}

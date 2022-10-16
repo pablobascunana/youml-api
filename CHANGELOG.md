@@ -2,11 +2,12 @@
 
 All notable changes will be documented in this file
 
-## [0.0.7](https://github.com/pablobascunana/youml-manager/compare/cd3a3b9...develop) (WIP)
+## [0.0.7](https://github.com/pablobascunana/youml-manager/compare/cd3a3b9...develop) (16-10-2022)
 
 ### Added
 * [ML-61](https://youml.atlassian.net/browse/ML-61) Dataset model
 * [ML-62](https://youml.atlassian.net/browse/ML-62) Create dataset endpoint
+* [ML-63](https://youml.atlassian.net/browse/ML-63) Get datasets endpoint
 
 
 ## [0.0.6](https://github.com/pablobascunana/youml-manager/compare/34864f4...cd3a3b9) (15-10-2022)
