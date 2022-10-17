@@ -17,9 +17,3 @@ class UserRepository(BaseUserManager):
         user.set_password(password)
         user.save(using=self._db)
         return user
-
-    def create_superuser(self, username, name, lastname, email, password, role='ADMIN'):
-        user = self.model(name=name, lastname=lastname, email=self.normalize_email(email), username=username, role=role)
-        user.set_password(password)
-        user.save(using=self._db)
-        return user
