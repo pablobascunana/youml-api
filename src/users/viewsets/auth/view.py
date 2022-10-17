@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login
 from django.utils import timezone
 from rest_framework import viewsets, status
 from rest_framework.response import Response
