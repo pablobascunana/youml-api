@@ -1,5 +1,4 @@
-from django.contrib.auth import authenticate, login
-from django.contrib.auth.hashers import check_password
+from django.contrib.auth import authenticate, login, logout
 from django.utils import timezone
 from rest_framework import viewsets, status
 from rest_framework.response import Response
