@@ -15,7 +15,7 @@ class EmailService:
     @staticmethod
     def get_template(path: str) -> str:
         template = read_file(path)
-        for key in template_mapping.keys():
+        for key in template_mapping:
             template = template.replace(key, template_mapping[key])
         return template
 
