@@ -6,7 +6,7 @@ from api.viewsets import Project
 
 
 @pytest.mark.django_db
-class TestUserEndpoints:
+class TestProjectEndpoints:
     endpoint = '/api/v1/project'
     unique_fields = 'The fields user, name must make a unique set.'
 

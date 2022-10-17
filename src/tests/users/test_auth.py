@@ -6,7 +6,7 @@ from users.models import User
 
 
 @pytest.mark.django_db(transaction=True)
-class TestUserEndpoints:
+class TestAuthEndpoints:
     endpoint = '/users/v1/auth'
 
     def test_list(self, client: APIClient):

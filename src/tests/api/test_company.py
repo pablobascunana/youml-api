@@ -7,7 +7,7 @@ from users.models import User
 
 
 @pytest.mark.django_db(transaction=True)
-class TestUserEndpoints:
+class TestCompanyEndpoints:
     endpoint = '/api/v1/company'
     cif_exists = 'company with this cif already exists.'
     company_email_exists = 'company with this email already exists.'
