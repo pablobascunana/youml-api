@@ -19,7 +19,7 @@ class TestAuthEndpoints:
         assert response.status_code == 200
 
     def test_login_incorrect_credentials(self, client_as_admin: APIClient):
-        user = {'username': client_as_admin[1].username, 'password': '1234'}
+        user = {'username': client_as_admin[1].username, 'password': 'fake_password_2'}
         response = client_as_admin[0].post(f"{self.endpoint}", user)
         assert response.status_code == 403
 
