@@ -6,6 +6,7 @@ All notable changes will be documented in this file
 
 * [ML-68](https://youml.atlassian.net/browse/ML-68) Delete project
 * [ML-69](https://youml.atlassian.net/browse/ML-69) Delete dataset and rename tests cases
+* [ML-67](https://youml.atlassian.net/browse/ML-67) Remove SonarCloud and Codacy issues
 
 
 ## [0.0.7](https://github.com/pablobascunana/youml-manager/compare/cd3a3b9...90712cb) (16-10-2022)

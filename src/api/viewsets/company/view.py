@@ -18,7 +18,6 @@ class CompanyViewSet(viewsets.ModelViewSet):
 
     @staticmethod
     def list(request, *args, **kwargs):
-        # TODO FUTURE, for now it is not possible to get anything for companies
         return Response(status=status.HTTP_403_FORBIDDEN)
 
     @staticmethod
