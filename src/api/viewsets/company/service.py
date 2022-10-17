@@ -1,5 +1,3 @@
-from typing import Dict
-
 from django.http import QueryDict
 
 from api.viewsets.company.model import Company
