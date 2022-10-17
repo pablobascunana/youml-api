@@ -5,7 +5,8 @@ from api.viewsets.dataset.model import Dataset
 
 class DatasetSerializer(serializers.ModelSerializer):
 
-    def to_representation(self, value):
+    @classmethod
+    def to_representation(cls, value):
         return {
             "uuid": value.uuid,
             "name": value.name,
