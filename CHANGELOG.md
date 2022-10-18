@@ -2,7 +2,17 @@
 
 All notable changes will be documented in this file
 
-## [0.0.7](https://github.com/pablobascunana/youml-manager/compare/cd3a3b9...develop) (16-10-2022)
+## [0.0.8](https://github.com/pablobascunana/youml-manager/compare/90712cb...develop) (18-10-2022)
+
+### Added
+* [ML-68](https://youml.atlassian.net/browse/ML-68) Delete project
+* [ML-69](https://youml.atlassian.net/browse/ML-69) Delete dataset and rename tests cases
+
+### Fixed
+* [ML-67](https://youml.atlassian.net/browse/ML-67) Remove SonarCloud and Codacy issues
+
+
+## [0.0.7](https://github.com/pablobascunana/youml-manager/compare/cd3a3b9...90712cb) (16-10-2022)
 
 ### Added
 * [ML-61](https://youml.atlassian.net/browse/ML-61) Dataset model

@@ -21,7 +21,6 @@ class UserViewSet(viewsets.ModelViewSet):
 
     @staticmethod
     def list(request, *args, **kwargs):
-        # TODO FUTURE, maybe it is possible to return all user list if the request is requested by an admin user
         return Response(status=status.HTTP_403_FORBIDDEN)
 
     def create(self, request, *args, **kwargs):
@@ -39,6 +38,5 @@ class UserViewSet(viewsets.ModelViewSet):
         user = self.get_queryset().filter(pk=payload['uuid'])[0]
         if not user.verified:
             self.user_service.verify_and_activate_user(user)
-            # TODO will be a redirect
             return Response({}, status=status.HTTP_200_OK)
         return Response({}, status=status.HTTP_403_FORBIDDEN)

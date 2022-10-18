@@ -6,7 +6,7 @@ from users.models import User
 
 
 @pytest.mark.django_db(transaction=True)
-class TestUserEndpoints:
+class TestAuthEndpoints:
     endpoint = '/users/v1/auth'
 
     def test_list(self, client: APIClient):
@@ -19,7 +19,7 @@ class TestUserEndpoints:
         assert response.status_code == 200
 
     def test_login_incorrect_credentials(self, client_as_admin: APIClient):
-        user = {'username': client_as_admin[1].username, 'password': '1234'}
+        user = {'username': client_as_admin[1].username, 'password': 'fake_password_2'}
         response = client_as_admin[0].post(f"{self.endpoint}", user)
         assert response.status_code == 403
 
