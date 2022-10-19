@@ -2,7 +2,12 @@
 
 All notable changes will be documented in this file
 
-## [0.0.8](https://github.com/pablobascunana/youml-manager/compare/90712cb...develop) (18-10-2022)
+## [0.0.8](https://github.com/pablobascunana/youml-manager/compare/2ed9f97...2ed9f97) (WIP)
+
+### Added
+* [ML-75](https://youml.atlassian.net/browse/ML-75) Label model
+
+## [0.0.8](https://github.com/pablobascunana/youml-manager/compare/90712cb...2ed9f97) (18-10-2022)
 
 ### Added
 * [ML-68](https://youml.atlassian.net/browse/ML-68) Delete project
