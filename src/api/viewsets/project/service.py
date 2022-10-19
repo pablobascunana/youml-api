@@ -1,6 +1,6 @@
 from typing import Dict
 
-from api.viewsets import Project
+from api.viewsets.project.model import Project
 from api.viewsets.project.serializer import ProjectSerializer
 
 
