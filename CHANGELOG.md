@@ -6,6 +6,7 @@ All notable changes will be documented in this file
 
 ### Added
 * [ML-75](https://youml.atlassian.net/browse/ML-75) Label model
+* [ML-77](https://youml.atlassian.net/browse/ML-77) Image model
 
 ## [0.0.8](https://github.com/pablobascunana/youml-manager/compare/90712cb...2ed9f97) (18-10-2022)
 
