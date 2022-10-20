@@ -1,10 +1,7 @@
-import os
-
 import pytest
 from django.conf import settings
 
 from core.managers.file import LocalFileManager
-from core.providers.file_system import FileManagerProvider
 
 
 @pytest.mark.django_db
