@@ -1,7 +1,7 @@
 import pytest
 from model_bakery import baker
 
-from api.viewsets import Project
+from api.viewsets.project.model import Project
 
 
 @pytest.fixture()

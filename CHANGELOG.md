@@ -8,7 +8,8 @@ All notable changes will be documented in this file
 * [ML-75](https://youml.atlassian.net/browse/ML-75) Label model
 * [ML-77](https://youml.atlassian.net/browse/ML-77) Image model
 * [ML-78](https://youml.atlassian.net/browse/ML-78) ImageLabels model
-* 
+* [ML-79](https://youml.atlassian.net/browse/ML-79) Create image endpoint
+
 ## [0.0.8](https://github.com/pablobascunana/youml-manager/compare/90712cb...2ed9f97) (18-10-2022)
 
 ### Added
