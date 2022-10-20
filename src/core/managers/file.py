@@ -1,7 +1,7 @@
 import os
 
 
-class LocalFileSystemServices:
+class LocalFileManager:
 
     def __init__(self):
         path = os.getenv('STORAGE_PATH')
@@ -9,7 +9,7 @@ class LocalFileSystemServices:
             self.create_directory(path)
 
     @staticmethod
-    def exist_path(path):
+    def exist_path(path) -> bool:
         return os.path.exists(path)
 
     def create_directory(self, path):

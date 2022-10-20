@@ -1,8 +1,8 @@
-from core.services.file_system import LocalFileSystemServices
+from core.managers.file import LocalFileManager
 
 
-class FileSystemProvider:
+class FileManagerProvider:
 
     def __init__(self, storage):
         if storage == 'LOCAL':
-            self.provider = LocalFileSystemServices()
+            self.provider = LocalFileManager()
