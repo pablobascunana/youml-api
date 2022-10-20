@@ -51,7 +51,6 @@ class TestLocalFileSystem:
         assert isinstance(file_bytes, bytes)
 
     def test_delete_file(self, file_manager, tmp_path):
-        file_manager = FileManagerProvider(os.getenv('STORAGE_TYPE')).provider
         file_bytes = file_manager.retrieve_file(f'{settings.BASE_DIR}/{self.filename}')
         file_manager.save_file(f'{tmp_path}/{self.filename}', file_bytes)
         file_manager.delete_file(f'{tmp_path}/{self.filename}')
