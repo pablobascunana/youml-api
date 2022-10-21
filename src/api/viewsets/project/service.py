@@ -1,3 +1,4 @@
+import os
 from typing import Dict
 
 from api.viewsets.project.model import Project
@@ -16,3 +17,9 @@ class ProjectService:
     @staticmethod
     def delete(project_uuid: str):
         return Project.objects.filter(pk=project_uuid).delete()[0]
+
+    @staticmethod
+    def get_storage(storage_name: str) -> str:
+        if os.getenv('STORAGE_TYPE') == 'LOCAL':
+            return f"{os.getenv('STORAGE_PATH')}/{storage_name}"
+        return storage_name
