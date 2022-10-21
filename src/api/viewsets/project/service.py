@@ -15,6 +15,10 @@ class ProjectService:
         return project_serializer.data
 
     @staticmethod
+    def get_by_id(project_id: int) -> Project:
+        return Project.objects.get(pk=project_id)
+
+    @staticmethod
     def delete(project_uuid: str):
         return Project.objects.filter(pk=project_uuid).delete()[0]
 
