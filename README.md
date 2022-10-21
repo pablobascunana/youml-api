@@ -59,4 +59,3 @@ pytest --cov-report term-missing --cov-config=.coveragerc --cov=src src/tests
 ```shell
 pytest src/tests --cov=src --cov-config=.coveragerc --cov-report=html:.test-results
 ```
-

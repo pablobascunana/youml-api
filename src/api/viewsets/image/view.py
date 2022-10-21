@@ -1,16 +1,19 @@
 import os
 
-from rest_framework import viewsets, status
+from rest_framework import viewsets, status, mixins
 from rest_framework.response import Response
 
 from api.viewsets.image.model import Image
+from api.viewsets.image.serializer import ImageSerializer
 from api.viewsets.image.service import ImageService
 from api.viewsets.project.service import ProjectService
 from core.providers.file_system import FileManagerProvider
 
 
-class ImageViewSet(viewsets.ModelViewSet):
+class ImageViewSet(mixins.CreateModelMixin, viewsets.GenericViewSet):
     queryset = Image.objects.all()
+
+    serializer_class = ImageSerializer
 
     @staticmethod
     def list(request, *args, **kwargs):
