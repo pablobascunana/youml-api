@@ -1,5 +1,3 @@
-import os
-
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 
@@ -26,9 +24,7 @@ class ProjectViewSet(viewsets.ModelViewSet):
         return Response(json_projects, status=status.HTTP_200_OK)
 
     def create(self, request, *args, **kwargs):
-        storage = request.data['storage']
-        if os.getenv('STORAGE_TYPE') == 'LOCAL':
-            storage = f"{os.getenv('STORAGE_PATH')}/{request.data['storage']}"
+        storage = self.project_service.get_storage(request.data['storage'])
         project = {'name': request.data['name'], 'user': request.user.uuid, 'storage_in': storage}
         created_project = self.project_service.create(project)
         return Response(created_project, status=status.HTTP_201_CREATED)
