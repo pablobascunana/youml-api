@@ -13,9 +13,17 @@ class TestLabelEndpoints:
 
     LABEL_NAME = 'My label'
 
-    def test_list(self, client_as_admin: APIClient):
+    def test_list_as_admin_user(self, client_as_admin: APIClient):
         response = client_as_admin[0].get(self.endpoint)
-        assert response.status_code == 405
+        assert response.status_code == 200
+
+    def test_list_as_normal_user(self, client_as_user: APIClient):
+        response = client_as_user[0].get(self.endpoint)
+        assert response.status_code == 200
+
+    def test_list_projects_without_permission(self, client: APIClient):
+        response = client.get(self.endpoint)
+        assert response.status_code == 403
 
     def test_create(self, client_as_user: APIClient, dataset: Dataset):
         body = {"name": self.LABEL_NAME, "dataset": dataset.pk}
