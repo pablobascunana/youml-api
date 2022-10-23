@@ -2,7 +2,7 @@
 
 All notable changes will be documented in this file
 
-## [0.0.8](https://github.com/pablobascunana/youml-manager/compare/2ed9f97...2ed9f97) (WIP)
+## [0.0.9](https://github.com/pablobascunana/youml-manager/compare/2ed9f97...develop) (23-10-2022)
 
 ### Added
 * [ML-75](https://youml.atlassian.net/browse/ML-75) Label model
