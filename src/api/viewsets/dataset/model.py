@@ -5,7 +5,7 @@ from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
 from api.mixins.validate_model import ValidateModelMixin
-from api.viewsets import Project
+from api.viewsets.project.model import Project
 
 
 class Dataset(ValidateModelMixin, models.Model):

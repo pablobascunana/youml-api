@@ -1,6 +1,6 @@
 from typing import Dict
 
-from api.viewsets import Dataset
+from api.viewsets.dataset.model import Dataset
 from api.viewsets.dataset.serializer import DatasetSerializer
 
 
