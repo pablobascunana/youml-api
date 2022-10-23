@@ -2,7 +2,12 @@
 
 All notable changes will be documented in this file
 
-## [0.0.9](https://github.com/pablobascunana/youml-manager/compare/2ed9f97...develop) (23-10-2022)
+## [0.0.10](https://github.com/pablobascunana/youml-manager/compare/2a747d6...develop) (WIP)
+
+### Added
+* [ML-90](https://youml.atlassian.net/browse/ML-90) Endpoint get labels
+
+## [0.0.9](https://github.com/pablobascunana/youml-manager/compare/2ed9f97...2a747d6) (23-10-2022)
 
 ### Added
 * [ML-75](https://youml.atlassian.net/browse/ML-75) Label model
