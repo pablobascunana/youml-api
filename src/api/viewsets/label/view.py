@@ -10,10 +10,6 @@ class LabelViewSet(viewsets.ModelViewSet):
     serializer_class = LabelSerializer
 
     @staticmethod
-    def list(request, *args, **kwargs):
-        return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
-
-    @staticmethod
     def update(request, pk=None, *args, **kwargs):
         return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
