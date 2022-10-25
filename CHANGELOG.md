@@ -6,6 +6,11 @@ All notable changes will be documented in this file
 
 ### Added
 * [ML-90](https://youml.atlassian.net/browse/ML-90) Endpoint get labels
+* [ML-114](https://youml.atlassian.net/browse/ML-114) Create image-labels endpoint
+
+### Changed
+* [ML-114](https://youml.atlassian.net/browse/ML-114) Return image saved date in image endpoint
+
 
 ## [0.0.9](https://github.com/pablobascunana/youml-manager/compare/2ed9f97...2a747d6) (23-10-2022)
 
@@ -16,6 +21,7 @@ All notable changes will be documented in this file
 * [ML-79](https://youml.atlassian.net/browse/ML-79) Create image endpoint
 * [ML-92](https://youml.atlassian.net/browse/ML-92) Add file manager provider and local filesystem
 * [ML-76](https://youml.atlassian.net/browse/ML-76) Add storage_in field in project model and save it create project endpoint
+
 
 ## [0.0.8](https://github.com/pablobascunana/youml-manager/compare/90712cb...2ed9f97) (18-10-2022)
 
