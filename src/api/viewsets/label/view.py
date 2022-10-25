@@ -18,5 +18,6 @@ class LabelViewSet(viewsets.ModelViewSet):
         label = ImageLabelService().filter_by_label_id(pk)
         if label.exists():
             return Response(status=status.HTTP_400_BAD_REQUEST)
-        self.get_queryset().get(pk=pk).delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        destroyed = self.get_queryset().filter(pk=pk).delete()[0]
+        return Response(status=status.HTTP_204_NO_CONTENT) if destroyed > 0 \
+            else Response("Resource not found", status=status.HTTP_404_NOT_FOUND)

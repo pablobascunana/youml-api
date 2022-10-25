@@ -2,6 +2,7 @@ import pytest
 from model_bakery import baker
 from rest_framework.test import APIClient
 
+from api.viewsets import ImageLabels, Image
 from api.viewsets.dataset.model import Dataset
 from api.viewsets.label.model import Label
 
@@ -42,12 +43,19 @@ class TestLabelEndpoints:
         response = client.post(f"{self.endpoint}", body, format='json')
         assert response.status_code == 403
 
-    def test_update(self, client_as_admin: APIClient):
-        label = baker.make(Label)
+    def test_update(self, client_as_admin: APIClient, label: Label):
         response = client_as_admin[0].put(f"{self.endpoint}/{label.pk}")
         assert response.status_code == 405
 
-    def test_delete(self, client_as_admin: APIClient):
-        label = baker.make(Label)
+    def test_delete(self, client_as_admin: APIClient, label: Label):
         response = client_as_admin[0].delete(f"{self.endpoint}/{label.pk}")
-        assert response.status_code == 405
+        assert response.status_code == 204
+
+    def test_delete_existing(self, client_as_admin: APIClient, image: Image, label: Label):
+        baker.make(ImageLabels, label=label, image=image)
+        response = client_as_admin[0].delete(f"{self.endpoint}/{label.pk}")
+        assert response.status_code == 400
+
+    def test_delete_not_found(self, client_as_admin: APIClient):
+        response = client_as_admin[0].delete(f"{self.endpoint}/60a7f3a2-122c-450b-aaa6-703eb4bbe540")
+        assert response.status_code == 404
