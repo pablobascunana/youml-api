@@ -10,14 +10,10 @@ from api.viewsets.project.service import ProjectService
 from core.providers.file_system import FileManagerProvider
 
 
-class ImageViewSet(mixins.CreateModelMixin, viewsets.GenericViewSet):
+class ImageViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, viewsets.GenericViewSet):
     queryset = Image.objects.all()
 
     serializer_class = ImageSerializer
-
-    @staticmethod
-    def list(request, *args, **kwargs):
-        return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
     def create(self, request, *args, **kwargs):
         project = ProjectService().get_by_id(request.data['project'])
