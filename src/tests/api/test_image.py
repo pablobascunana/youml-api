@@ -50,18 +50,19 @@ class TestProjectEndpoints:
             boundary=BOUNDARY), content_type=MULTIPART_CONTENT)
         assert response.status_code == 403
 
-    def test_update_not_found(self, client_as_admin: APIClient, image: Image):
-        response = client_as_admin[0].put(f"{self.endpoint}/{image.pk}")
-        assert response.status_code == 404
-
     def test_update_not_allow(self, client_as_admin: APIClient):
         response = client_as_admin[0].put(f"{self.endpoint}")
         assert response.status_code == 405
 
-    def test_delete_not_found(self, client_as_admin: APIClient, image: Image):
+    def test_delete_not_found(self, client_as_admin: APIClient):
+        image = baker.prepare(Image)
         response = client_as_admin[0].delete(f"{self.endpoint}/{image.pk}")
         assert response.status_code == 404
 
-    def test_delete_not_allow(self, client_as_admin: APIClient):
-        response = client_as_admin[0].delete(f"{self.endpoint}")
-        assert response.status_code == 405
+    def test_delete(self, client_as_admin: APIClient, image: Image):
+        response = client_as_admin[0].delete(f"{self.endpoint}/{image.pk}")
+        assert response.status_code == 204
+
+    def test_delete_without_permissions(self, client: APIClient, image: Image):
+        response = client.delete(f"{self.endpoint}/{image.pk}")
+        assert response.status_code == 403
