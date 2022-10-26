@@ -10,7 +10,7 @@ from api.viewsets.project.service import ProjectService
 from core.providers.file_system import FileManagerProvider
 
 
-class ImageViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, viewsets.GenericViewSet):
+class ImageViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, mixins.DestroyModelMixin, viewsets.GenericViewSet):
     queryset = Image.objects.all()
 
     serializer_class = ImageSerializer
