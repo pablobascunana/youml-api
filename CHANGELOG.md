@@ -5,6 +5,7 @@ All notable changes will be documented in this file
 ## [0.0.10](https://github.com/pablobascunana/youml-manager/compare/2a747d6...develop) (WIP)
 
 ### Added
+* [PR-53](https://github.com/pablobascunana/youml-manager/pull/53) Endpoint get images
 * [PR-52](https://github.com/pablobascunana/youml-manager/pull/52) Delete label endpoint
 * [PR-50](https://github.com/pablobascunana/youml-manager/pull/50) Create image-labels endpoint
 * [PR-48](https://github.com/pablobascunana/youml-manager/pull/48) Endpoint get labels

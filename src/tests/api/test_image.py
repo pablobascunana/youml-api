@@ -17,11 +17,11 @@ class TestProjectEndpoints:
 
     def test_list_as_admin_user(self, client_as_admin: APIClient):
         response = client_as_admin[0].get(self.endpoint)
-        assert response.status_code == 405
+        assert response.status_code == 200
 
     def test_list_as_normal_user(self, client_as_user: APIClient):
         response = client_as_user[0].get(self.endpoint)
-        assert response.status_code == 405
+        assert response.status_code == 200
 
     def test_list_projects_without_permission(self, client: APIClient):
         response = client.get(self.endpoint)
