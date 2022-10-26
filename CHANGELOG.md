@@ -5,11 +5,12 @@ All notable changes will be documented in this file
 ## [0.0.10](https://github.com/pablobascunana/youml-manager/compare/2a747d6...develop) (WIP)
 
 ### Added
-* [ML-90](https://youml.atlassian.net/browse/ML-90) Endpoint get labels
-* [ML-114](https://youml.atlassian.net/browse/ML-114) Create image-labels endpoint
+* [PR-52](https://github.com/pablobascunana/youml-manager/pull/52) Delete label endpoint
+* [PR-50](https://github.com/pablobascunana/youml-manager/pull/50) Create image-labels endpoint
+* [PR-48](https://github.com/pablobascunana/youml-manager/pull/48) Endpoint get labels
 
 ### Changed
-* [ML-114](https://youml.atlassian.net/browse/ML-114) Return image saved date in image endpoint
+* [PR-50](https://github.com/pablobascunana/youml-manager/pull/50) Return image saved date in image endpoint
 
 
 ## [0.0.9](https://github.com/pablobascunana/youml-manager/compare/2ed9f97...2a747d6) (23-10-2022)
