@@ -153,11 +153,11 @@
         },
         "model-bakery": {
             "hashes": [
-                "sha256:98702ba2986adaf30aab417bca5209b6961b9ce8d31fe4a573161f9198647401",
-                "sha256:da0dc0b5005ddf2936f66936eb96cc2aed2356bf7402833080535c2279c42931"
+                "sha256:93ac818df49377d4f14316105028fa95231474bf268d6017e420e5d4b74d54fd",
+                "sha256:99571801a26b85b8dcba7f0ad39750aeb2f2477fe770d2291823e16788785000"
             ],
             "index": "pypi",
-            "version": "==1.8.0"
+            "version": "==1.9.0"
         },
         "packaging": {
             "hashes": [
@@ -264,9 +264,9 @@
         },
         "starkbank-ecdsa": {
             "hashes": [
-                "sha256:24422395e8682ac22a5b20ba3d7418d62e1a927aef29e8ddb5e678662be6b643"
+                "sha256:9399c3371b899d4a235b68a1ed7919d202fbf024bd2c863ae8ebdad343c2a63a"
             ],
-            "version": "==2.1.0"
+            "version": "==2.2.0"
         },
         "tomli": {
             "hashes": [
