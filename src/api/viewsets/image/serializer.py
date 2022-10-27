@@ -7,4 +7,7 @@ class ImageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Image
-        fields = '__all__'
+        fields = ('uuid', 'name', 'dataset')
+        extra_kwargs = {
+            'dataset': {'write_only': True}
+        }

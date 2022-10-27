@@ -10,17 +10,12 @@ from api.viewsets.project.service import ProjectService
 from core.providers.file_system import FileManagerProvider
 
 
-class ImageViewSet(mixins.CreateModelMixin, viewsets.GenericViewSet):
+class ImageViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, mixins.DestroyModelMixin, viewsets.GenericViewSet):
     queryset = Image.objects.all()
 
     serializer_class = ImageSerializer
 
-    @staticmethod
-    def list(request, *args, **kwargs):
-        return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
-
-    @staticmethod
-    def create(request, *args, **kwargs):
+    def create(self, request, *args, **kwargs):
         project = ProjectService().get_by_id(request.data['project'])
         file_system = FileManagerProvider(os.getenv('STORAGE_TYPE')).provider
         filename = file_system.format_filename(request.data['filename'])
@@ -28,5 +23,5 @@ class ImageViewSet(mixins.CreateModelMixin, viewsets.GenericViewSet):
         file_system.create_directory(filepath)
         file_system.save_file(f'{filepath}/{filename}', request.data['file'].read())
         image = {"name": filename, "dataset": request.data['dataset']}
-        ImageService().create(image)
-        return Response(status=status.HTTP_201_CREATED)
+        saved_image = ImageService().create(image)
+        return Response(self.get_serializer(saved_image).data, status=status.HTTP_201_CREATED)

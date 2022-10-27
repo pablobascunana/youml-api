@@ -2,7 +2,20 @@
 
 All notable changes will be documented in this file
 
-## [0.0.9](https://github.com/pablobascunana/youml-manager/compare/2ed9f97...develop) (23-10-2022)
+## [0.0.10](https://github.com/pablobascunana/youml-manager/compare/2a747d6...0953144) (27-10-2022)
+
+### Added
+* [PR-54](https://github.com/pablobascunana/youml-manager/pull/54) Endpoint delete images
+* [PR-53](https://github.com/pablobascunana/youml-manager/pull/53) Endpoint get images
+* [PR-52](https://github.com/pablobascunana/youml-manager/pull/52) Delete label endpoint
+* [PR-50](https://github.com/pablobascunana/youml-manager/pull/50) Create image-labels endpoint
+* [PR-48](https://github.com/pablobascunana/youml-manager/pull/48) Endpoint get labels
+
+### Changed
+* [PR-50](https://github.com/pablobascunana/youml-manager/pull/50) Return image saved date in image endpoint
+
+
+## [0.0.9](https://github.com/pablobascunana/youml-manager/compare/2ed9f97...2a747d6) (23-10-2022)
 
 ### Added
 * [ML-75](https://youml.atlassian.net/browse/ML-75) Label model
@@ -11,6 +24,7 @@ All notable changes will be documented in this file
 * [ML-79](https://youml.atlassian.net/browse/ML-79) Create image endpoint
 * [ML-92](https://youml.atlassian.net/browse/ML-92) Add file manager provider and local filesystem
 * [ML-76](https://youml.atlassian.net/browse/ML-76) Add storage_in field in project model and save it create project endpoint
+
 
 ## [0.0.8](https://github.com/pablobascunana/youml-manager/compare/90712cb...2ed9f97) (18-10-2022)
 
