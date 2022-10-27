@@ -14,7 +14,7 @@ class Project(ValidateModelMixin, models.Model):
     storage_in = models.CharField(_('storage_in'), max_length=240, null=True, blank=True)
     user = models.ForeignKey("users.User", on_delete=models.CASCADE, null=False, blank=False, db_column='user')
 
-    REQUIRED_FIELDS = ['uuid', 'user', 'name', 'storage_in']
+    REQUIRED_FIELDS = ['user', 'name', 'storage_in']
 
     class Meta:
         db_table = 'project'
