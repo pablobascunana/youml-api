@@ -2,7 +2,7 @@
 
 All notable changes will be documented in this file
 
-## [0.0.10](https://github.com/pablobascunana/youml-manager/compare/2a747d6...develop) (27-10-2022)
+## [0.0.10](https://github.com/pablobascunana/youml-manager/compare/2a747d6...0953144) (27-10-2022)
 
 ### Added
 * [PR-54](https://github.com/pablobascunana/youml-manager/pull/54) Endpoint delete images
