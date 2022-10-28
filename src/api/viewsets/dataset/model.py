@@ -15,8 +15,8 @@ class Dataset(ValidateModelMixin, models.Model):
     user = models.ForeignKey("users.User", on_delete=models.CASCADE, null=False, blank=False, db_column='user')
     project = models.ForeignKey(Project, on_delete=models.CASCADE, null=False, blank=False, db_column='project')
 
-    REQUIRED_FIELDS = ['uuid', 'user', 'project', 'name']
+    REQUIRED_FIELDS = ['user', 'project', 'name']
 
     class Meta:
         db_table = 'dataset'
-        unique_together = ('user', 'name')
+        unique_together = ('user', 'project', 'name')
