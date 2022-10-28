@@ -4,16 +4,11 @@ from api.viewsets.dataset.model import Dataset
 
 
 class DatasetSerializer(serializers.ModelSerializer):
+    created_at = serializers.SerializerMethodField()
 
-    @classmethod
-    def to_representation(cls, value):
-        return {
-            "uuid": value.uuid,
-            "name": value.name,
-            "createdAt": value.created_at.strftime("%d-%m-%Y %H:%M:%S"),
-            "user": value.user_id,
-            "project": value.project_id
-        }
+    @staticmethod
+    def get_created_at(obj):
+        return obj.created_at.strftime("%d-%m-%Y %H:%M:%S")
 
     class Meta:
         model = Dataset

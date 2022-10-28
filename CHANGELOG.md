@@ -4,11 +4,13 @@ All notable changes will be documented in this file
 
 ## [0.0.11](https://github.com/pablobascunana/youml-manager/compare/0953144...develop) (WIP)
 
-### Changed
+### Added
 * [PR-58](https://github.com/pablobascunana/youml-manager/pull/58) Update changelog
 * [PR-57](https://github.com/pablobascunana/youml-manager/pull/57) Logout endpoint
 * [PR-56](https://github.com/pablobascunana/youml-manager/pull/56) Remove some required uuids in some models
 
+### Changed
+* [PR-59](https://github.com/pablobascunana/youml-manager/pull/59) to_representation to get_created_at to return dates
 
 ## [0.0.10](https://github.com/pablobascunana/youml-manager/compare/2a747d6...0953144) (27-10-2022)
 
