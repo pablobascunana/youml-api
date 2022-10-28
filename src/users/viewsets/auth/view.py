@@ -1,6 +1,8 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.utils import timezone
 from rest_framework import viewsets, status
+from rest_framework.decorators import action
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from users.models import User
@@ -35,3 +37,9 @@ class AuthViewSet(viewsets.ModelViewSet):
             self.user_service.activate_or_deactivate_user(user, False)
 
         return Response(status=status.HTTP_403_FORBIDDEN)
+
+    @action(methods=["post"], name="logout", url_path='logout', url_name="Logout user", detail=False,
+            permission_classes=[IsAuthenticated])
+    def logout(self, request):
+        logout(request)
+        return Response(status=status.HTTP_200_OK)
