@@ -5,14 +5,16 @@ All notable changes will be documented in this file
 ## [0.0.11](https://github.com/pablobascunana/youml-manager/compare/0953144...develop) (WIP)
 
 ### Changed
+* [PR-58](https://github.com/pablobascunana/youml-manager/pull/58) Update changelog
+* [PR-57](https://github.com/pablobascunana/youml-manager/pull/57) Logout endpoint
 * [PR-56](https://github.com/pablobascunana/youml-manager/pull/56) Remove some required uuids in some models
 
 
 ## [0.0.10](https://github.com/pablobascunana/youml-manager/compare/2a747d6...0953144) (27-10-2022)
 
 ### Added
-* [PR-54](https://github.com/pablobascunana/youml-manager/pull/54) Endpoint delete images
-* [PR-53](https://github.com/pablobascunana/youml-manager/pull/53) Endpoint get images
+* [PR-54](https://github.com/pablobascunana/youml-manager/pull/54) Delete images endpoint
+* [PR-53](https://github.com/pablobascunana/youml-manager/pull/53) Get images endpoint
 * [PR-52](https://github.com/pablobascunana/youml-manager/pull/52) Delete label endpoint
 * [PR-50](https://github.com/pablobascunana/youml-manager/pull/50) Create image-labels endpoint
 * [PR-48](https://github.com/pablobascunana/youml-manager/pull/48) Endpoint get labels
@@ -24,80 +26,82 @@ All notable changes will be documented in this file
 ## [0.0.9](https://github.com/pablobascunana/youml-manager/compare/2ed9f97...2a747d6) (23-10-2022)
 
 ### Added
-* [ML-75](https://youml.atlassian.net/browse/ML-75) Label model
-* [ML-77](https://youml.atlassian.net/browse/ML-77) Image model
-* [ML-78](https://youml.atlassian.net/browse/ML-78) ImageLabels model
-* [ML-79](https://youml.atlassian.net/browse/ML-79) Create image endpoint
-* [ML-92](https://youml.atlassian.net/browse/ML-92) Add file manager provider and local filesystem
-* [ML-76](https://youml.atlassian.net/browse/ML-76) Add storage_in field in project model and save it create project endpoint
+* [PR-45](https://github.com/pablobascunana/youml-manager/pull/45) Add storage_in field in project model and save it create project endpoint
+* [PR-43](https://github.com/pablobascunana/youml-manager/pull/43) Add file manager provider and local filesystem
+* [PR-42](https://github.com/pablobascunana/youml-manager/pull/42) Create image endpoint
+* [PR-40](https://github.com/pablobascunana/youml-manager/pull/40) ImageLabels model
+* [PR-39](https://github.com/pablobascunana/youml-manager/pull/39) Image model
+* [PR-38](https://github.com/pablobascunana/youml-manager/pull/38) Label model
 
 
 ## [0.0.8](https://github.com/pablobascunana/youml-manager/compare/90712cb...2ed9f97) (18-10-2022)
 
 ### Added
-* [ML-68](https://youml.atlassian.net/browse/ML-68) Delete project
-* [ML-69](https://youml.atlassian.net/browse/ML-69) Delete dataset and rename tests cases
+* [PR-34](https://github.com/pablobascunana/youml-manager/pull/34) Delete dataset and rename tests cases
+* [PR-33](https://github.com/pablobascunana/youml-manager/pull/33) Delete project
 
 ### Fixed
-* [ML-67](https://youml.atlassian.net/browse/ML-67) Remove SonarCloud and Codacy issues
+* [PR-35](https://github.com/pablobascunana/youml-manager/pull/35) Remove SonarCloud and Codacy issues
 
 
 ## [0.0.7](https://github.com/pablobascunana/youml-manager/compare/cd3a3b9...90712cb) (16-10-2022)
 
 ### Added
-* [ML-61](https://youml.atlassian.net/browse/ML-61) Dataset model
-* [ML-62](https://youml.atlassian.net/browse/ML-62) Create dataset endpoint
-* [ML-63](https://youml.atlassian.net/browse/ML-63) Get datasets endpoint
+* [PR-30](https://github.com/pablobascunana/youml-manager/pull/30) Get datasets endpoint
+* [PR-31](https://github.com/pablobascunana/youml-manager/pull/31) Create dataset endpoint
+* [PR-32](https://github.com/pablobascunana/youml-manager/pull/32) Dataset model
 
 
 ## [0.0.6](https://github.com/pablobascunana/youml-manager/compare/34864f4...cd3a3b9) (15-10-2022)
 
 ### Added
-* [ML-49](https://youml.atlassian.net/browse/ML-49) Project model
-* [ML-50](https://youml.atlassian.net/browse/ML-50) Create project endpoint
-* [ML-51](https://youml.atlassian.net/browse/ML-51) Get projects endpoint
+* [PR-28](https://github.com/pablobascunana/youml-manager/pull/28) Get projects endpoint
+* [PR-27](https://github.com/pablobascunana/youml-manager/pull/27) Create project endpoint
+* [PR-25](https://github.com/pablobascunana/youml-manager/pull/25) Project model
 
 
 ### Changed
-* [ML-58](https://youml.atlassian.net/browse/ML-58) Change field CompanyId to company in user table
-* [ML-51](https://youml.atlassian.net/browse/ML-51) Update createdDate to cratedAt fields in company and project tables
+* [PR-28](https://github.com/pablobascunana/youml-manager/pull/28) Update createdDate to cratedAt fields in company and project tables
+* [PR-24](https://github.com/pablobascunana/youml-manager/pull/24) Change field CompanyId to company in user table
 
 
 ## [0.0.5](https://github.com/pablobascunana/youml-manager/compare/fdf8a8d...34864f4) (13-10-2022)
 
 ### Added
-* [ML-19](https://youml.atlassian.net/browse/ML-19) Login endpoint
+* [PR-22](https://github.com/pablobascunana/youml-manager/pull/22) Login endpoint
+* [PR-21](https://github.com/pablobascunana/youml-manager/pull/21) Login endpoint
+
 
 ## [0.0.4](https://github.com/pablobascunana/youml-manager/compare/3b365b1...fdf8a8d) (10-10-2022)
 
 ### Added
-* [ML-40](https://youml.atlassian.net/browse/ML-40) Pytest coverage and HTML reports
+* [PR-18](https://github.com/pablobascunana/youml-manager/pull/18) Pytest coverage and HTML reports
 
 ### Changed
-* [ML-43](https://youml.atlassian.net/browse/ML-43) Rename user table and delete action field in company table
-* [ML-44](https://youml.atlassian.net/browse/ML-44) Implement JWT to user verification
-* [ML-39](https://youml.atlassian.net/browse/ML-39) Move permissions to core package
+* [PR-17](https://github.com/pablobascunana/youml-manager/pull/17) Move permissions to core package
+* [PR-16](https://github.com/pablobascunana/youml-manager/pull/16) Implement JWT to user verification
+* [PR-15](https://github.com/pablobascunana/youml-manager/pull/15) Rename user table and delete action field in company table
 
 ## [0.0.3](https://github.com/pablobascunana/youml-manager/compare/fee5783...3b365b1) (10-10-2022)
 
 ### Added
-* [ML-34](https://youml.atlassian.net/browse/ML-34) Dependabot config
-* [ML-29](https://youml.atlassian.net/browse/ML-29) Update readme
-* [ML-37](https://youml.atlassian.net/browse/ML-37) Send email, verification email template, create and verify token
-* [ML-38](https://youml.atlassian.net/browse/ML-38) User verification
+* [PR-13](https://github.com/pablobascunana/youml-manager/pull/13) User verification
+* [PR-12](https://github.com/pablobascunana/youml-manager/pull/12) Send email, verification email template, create and verify token
+* [PR-8](https://github.com/pablobascunana/youml-manager/pull/8) Update readme
+* [PR-7](https://github.com/pablobascunana/youml-manager/pull/7) Dependabot config
 
 ## [0.0.2](https://github.com/pablobascunana/youml-manager/compare/d34ac30...fee5783) (01-10-2022)
 
 ### Added
-* [ML-28](https://youml.atlassian.net/browse/ML-28) Company model and company foreign key in user model
-* [ML-30](https://youml.atlassian.net/browse/ML-30) Changelog
-* [ML-27](https://youml.atlassian.net/browse/ML-27) Company view set and unit tests
+* [PR-6](https://github.com/pablobascunana/youml-manager/pull/6) Company view set and unit tests
+* [PR-5](https://github.com/pablobascunana/youml-manager/pull/5) Changelog
+* [PR-2](https://github.com/pablobascunana/youml-manager/pull/2) Company model and company foreign key in user model
 
 ## [0.0.1](https://github.com/pablobascunana/youml-manager/compare/c607e63...d34ac30) (30-09-2022)
 
 ### Added
-* [ML-23](https://youml.atlassian.net/browse/ML-23) User model
-* [ML-3](https://youml.atlassian.net/browse/ML-3) Endpoint to create and get user by uuid. Unit tests
+* [PR-3](https://github.com/pablobascunana/youml-manager/pull/3) User model
+* [PR-1](https://github.com/pablobascunana/youml-manager/pull/1) Endpoint to create and get user by uuid. Unit tests
 
 ### Fixed
-* [ML-32](https://youml.atlassian.net/browse/ML-32) Hide secret key and other variables in .env files
+* [PR-4](https://github.com/pablobascunana/youml-manager/pull/4) Hide secret key and other variables in .env files
