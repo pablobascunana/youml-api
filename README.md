@@ -1,6 +1,7 @@
 # YouML Manager
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/e58e5d43af804c68a911b1cf7e44d789)](https://www.codacy.com/gh/pablobascunana/youml-manager/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=pablobascunana/youml-manager&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/e58e5d43af804c68a911b1cf7e44d789)](https://www.codacy.com/gh/pablobascunana/youml-manager/dashboard?utm_source=github.com&utm_medium=referral&utm_content=pablobascunana/youml-manager&utm_campaign=Badge_Coverage)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=pablobascunana_youml-manager&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=pablobascunana_youml-manager)
 
 ## Dependencies
