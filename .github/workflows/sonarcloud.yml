@@ -13,6 +13,74 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+      - uses: actions/checkout@v2
+      - name: Find and Replace Django Secret Key
+        uses: jacobtomlinson/gha-find-replace@v2
+        with:
+          find: "{DJANGO_SECRET_KEY}"
+          replace: ${{ secrets.DJANGO_SECRET_KEY }}
+          regex: false
+          include: ".env.production"
+          exclude: "**/*.py"
+      - uses: actions/checkout@v2
+      - name: Find and Replace
+        uses: jacobtomlinson/gha-find-replace@v2
+        with:
+          find: "{DJANGO_DEBUG}"
+          replace: ${{ secrets.DJANGO_DEBUG }}
+          regex: false
+          include: ".env.production"
+          exclude: "**/*.py"
+      - uses: actions/checkout@v2
+      - name: Find and Replace
+        uses: jacobtomlinson/gha-find-replace@v2
+        with:
+          find: "{SENDER_EMAIL}"
+          replace: ${{ secrets.SENDER_EMAIL }}
+          regex: false
+          include: ".env.production"
+          exclude: "**/*.py"
+      - uses: actions/checkout@v2
+      - name: Find and Replace
+        uses: jacobtomlinson/gha-find-replace@v2
+        with:
+          find: "{SENDGRID_API_KEY}"
+          replace: ${{ secrets.SENDGRID_API_KEY }}
+          regex: false
+          include: ".env.production"
+          exclude: "**/*.py"
+      - name: Find and Replace
+        uses: jacobtomlinson/gha-find-replace@v2
+        with:
+          find: "{JWT_USER_VALIDATION}"
+          replace: ${{ secrets.JWT_USER_VALIDATION }}
+          regex: false
+          include: ".env.production"
+          exclude: "**/*.py"
+      - name: Find and Replace
+        uses: jacobtomlinson/gha-find-replace@v2
+        with:
+          find: "{URL_VERIFICATION_ENDPOINT}"
+          replace: ${{ secrets.URL_VERIFICATION_ENDPOINT }}
+          regex: false
+          include: ".env.production"
+          exclude: "**/*.py"
+      - name: Find and Replace
+        uses: jacobtomlinson/gha-find-replace@v2
+        with:
+          find: "{STORAGE_TYPE}"
+          replace: ${{ secrets.STORAGE_TYPE }}
+          regex: false
+          include: ".env.production"
+          exclude: "**/*.py"
+      - name: Find and Replace
+        uses: jacobtomlinson/gha-find-replace@v2
+        with:
+          find: "{STORAGE_PATH}"
+          replace: ${{ secrets.STORAGE_PATH }}
+          regex: false
+          include: ".env.production"
+          exclude: "**/*.py"
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
