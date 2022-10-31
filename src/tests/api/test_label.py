@@ -36,7 +36,7 @@ class TestLabelEndpoints:
         body = {"name": self.LABEL_NAME, "dataset": dataset.pk}
         response = client_as_user[0].post(f"{self.endpoint}", body, format='json')
         assert response.status_code == 400
-        assert response.json()['non_field_errors'][0] == self.unique_fields
+        assert response.json()['nonFieldErrors'][0] == self.unique_fields
 
     def test_create_without_permissions(self, client: APIClient):
         body = {"name": self.LABEL_NAME, "user": 'abcd-efg'}

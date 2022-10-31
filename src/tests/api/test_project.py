@@ -35,7 +35,7 @@ class TestProjectEndpoints:
         body = {"name": self.PROJECT_NAME, "user": str(client_as_user[1].uuid), "storage": self.STORAGE_FOLDER}
         response = client_as_user[0].post(f"{self.endpoint}", body, format='json')
         assert response.status_code == 400
-        assert response.json()['non_field_errors'][0] == self.unique_fields
+        assert response.json()['nonFieldErrors'][0] == self.unique_fields
 
     def test_create_project_without_permissions(self, client: APIClient):
         body = {"name": self.PROJECT_NAME, "user": 'abcd-efg'}

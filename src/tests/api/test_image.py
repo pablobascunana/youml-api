@@ -41,7 +41,7 @@ class TestProjectEndpoints:
             data=dict(file=document, filename=image.name, dataset=dataset.uuid, project=project.uuid),
             boundary=BOUNDARY), content_type=MULTIPART_CONTENT)
         assert response.status_code == 400
-        assert response.json()['non_field_errors'][0] == self.unique_fields
+        assert response.json()['nonFieldErrors'][0] == self.unique_fields
 
     def test_create_image_without_permissions(self, client: APIClient, project: Project, dataset: Dataset):
         document = ContentFile(b"some_data", self.IMAGE_NAME)
