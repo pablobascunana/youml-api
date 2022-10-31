@@ -2,7 +2,7 @@
 
 All notable changes will be documented in this file
 
-## [0.0.11](https://github.com/pablobascunana/youml-manager/compare/0953144...develop) (31-10-2022)
+## [0.0.11](https://github.com/pablobascunana/youml-manager/compare/0953144...eca5a47) (31-10-2022)
 
 ### Added
 * [PR-60](https://github.com/pablobascunana/youml-manager/pull/60) Add configuration for coverage in SonarCloud
