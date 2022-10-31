@@ -7,16 +7,17 @@ name = "pypi"
 django = "*"
 django-rest-framework = "*"
 django-extensions = "*"
-pytest = "*"
 model-bakery = "*"
-pytest-django = "*"
 python-dotenv = "*"
 sendgrid = "*"
 pyjwt = "*"
-pytest-cov = "*"
 djangorestframework-camel-case = "*"
 
 [dev-packages]
+pytest = "*"
+pytest-django = "*"
+pytest-cov = "*"
+tox = "*"
 
 [requires]
 python_version = "3.8"
