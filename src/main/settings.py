@@ -1,17 +1,13 @@
 import os
 import dotenv
 
-from pathlib import Path
+BASE_DIR = os.getcwd()
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-file = '.env'
-if os.environ.get('DJANGO_SERVER_MODE') == 'production':
-    file = '.env.production'
-
-dotenv_file = os.path.join(BASE_DIR, file)
-if os.path.isfile(dotenv_file):
-    dotenv.load_dotenv(dotenv_file)
+dev_dotenv_file = os.path.join(BASE_DIR, '.env')
+if os.path.isfile(dev_dotenv_file):
+    dotenv.load_dotenv(dev_dotenv_file)
+else:
+    dotenv.load_dotenv(os.path.join(BASE_DIR, 'src/.env.production'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
