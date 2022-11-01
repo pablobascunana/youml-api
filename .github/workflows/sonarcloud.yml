@@ -70,30 +70,10 @@ jobs:
           python-version: ${{ matrix.python }}
       - name: Install tox and any other packages
         run: pip install tox
-      - name: Install dotenv
-        run: pip install python-dotenv
-      - name: check settings
-        uses: jannekem/run-python-script-action@v1
-        with:
-          script: |
-            import os
-            import dotenv
-            from pathlib import Path
-            file = '.env'
-            BASE_DIR = os.getcwd()
-            print('BASE_DIR: ', BASE_DIR)
-            dotenv_file = os.path.join(BASE_DIR, file)
-            print('DOT_ENV_FILE: ', dotenv_file)
-            if os.path.isfile('src/.env.production'):
-                print('Is File')
-                dotenv.load_dotenv('src/.env.production')
-            print('SERVER_MODE: ', os.environ.get('DJANGO_SERVER_MODE'))
-            if os.environ.get('DJANGO_SERVER_MODE') == 'production':
-                file = '.env.production'
-#      - name: Run tox
-#        run: tox -e py
-#      - name: SonarCloud Scan
-#        uses: SonarSource/sonarcloud-github-action@master
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GH_ACTIONS_TOKEN }}
-#          SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
+      - name: Run tox
+        run: tox -e py
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_ACTIONS_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
