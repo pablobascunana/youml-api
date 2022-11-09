@@ -24,3 +24,6 @@ class Training(ValidateModelMixin, models.Model):
     created_at = models.DateTimeField(_('createdAt'), default=timezone.now, db_column='createdAt')
 
     REQUIRED_FIELDS = ['dataset', 'user']
+
+    class Meta:
+        db_table = 'training'
