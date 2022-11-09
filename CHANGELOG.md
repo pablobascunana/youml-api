@@ -6,6 +6,7 @@ All notable changes will be documented in this file
 
 ### Added
 * [PR-66](https://github.com/pablobascunana/youml-manager/pull/66) Training model
+* [PR-67](https://github.com/pablobascunana/youml-manager/pull/67) Mark to train at dates in image and image label models
 
 ## [0.0.11](https://github.com/pablobascunana/youml-manager/compare/0953144...af06caf) (09-11-2022)
 
