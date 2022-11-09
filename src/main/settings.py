@@ -1,10 +1,7 @@
 import os
 import dotenv
 
-if 'src' in os.getcwd():
-    BASE_DIR = os.getcwd()
-else:
-    BASE_DIR = os.path.join(os.getcwd(), 'src')
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 dotenv_file = os.path.join(BASE_DIR, '.env')
 if os.path.isfile(dotenv_file):
