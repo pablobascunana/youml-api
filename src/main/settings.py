@@ -1,15 +1,12 @@
 import os
 import dotenv
 
-from pathlib import Path
+if 'src' in os.getcwd():
+    BASE_DIR = os.getcwd()
+else:
+    BASE_DIR = os.path.join(os.getcwd(), 'src')
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-file = '.env'
-if os.environ.get('DJANGO_SERVER_MODE') == 'production':
-    file = '.env.production'
-
-dotenv_file = os.path.join(BASE_DIR, file)
+dotenv_file = os.path.join(BASE_DIR, '.env')
 if os.path.isfile(dotenv_file):
     dotenv.load_dotenv(dotenv_file)
 
@@ -86,7 +83,7 @@ WSGI_APPLICATION = 'main.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': f"{BASE_DIR}/db.sqlite3",
         'ATOMIC_REQUESTS': True,
     }
 }
