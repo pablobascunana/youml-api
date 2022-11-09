@@ -1,0 +1,39 @@
+name: SonarCloud-Coverage
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
+jobs:
+  sonarcloud:
+    name: SonarCloud
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Create .env file
+        run: |
+          touch src/.env
+          echo "DJANGO_SECRET_KEY=${{ secrets.DJANGO_SECRET_KEY }}" >> src/.env
+          echo "DJANGO_DEBUG=${{ secrets.DJANGO_DEBUG }}" >> src/.env
+          echo "SENDER_EMAIL=${{ secrets.SENDER_EMAIL }}" >> src/.env
+          echo "SENDGRID_API_KEY=${{ secrets.SENDGRID_API_KEY }}" >> src/.env
+          echo "JWT_USER_VALIDATION=${{ secrets.JWT_USER_VALIDATION }}" >> src/.env
+          echo "URL_VERIFICATION_ENDPOINT=${{ secrets.URL_VERIFICATION_ENDPOINT }}" >> src/.env
+          echo "STORAGE_TYPE=${{ secrets.STORAGE_TYPE }}" >> src/.env
+          echo "STORAGE_PATH=${{ secrets.STORAGE_PATH }}" >> src/.env
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install tox and any other packages
+        run: pip install tox
+      - name: Run tox
+        run: tox -e py
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_ACTIONS_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}

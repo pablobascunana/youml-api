@@ -23,8 +23,8 @@ class Company(ValidateModelMixin, models.Model):
     sector = models.CharField(_('sector'), max_length=80, null=True, blank=True)
     created_at = models.DateTimeField(_('createdAt'), default=timezone.now, db_column='createdAt')
 
-    REQUIRED_FIELDS = ['uuid', 'name', 'cif', 'email']
+    REQUIRED_FIELDS = ['name', 'cif', 'email']
 
     class Meta:
         db_table = 'company'
-        unique_together = ('uuid', 'email', 'name', 'cif')
+        unique_together = ('name', 'cif', 'email')
