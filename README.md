@@ -60,3 +60,9 @@ pytest --cov-report term-missing --cov-config=.coveragerc --cov=src src/tests
 ```shell
 pytest src/tests --cov=src --cov-config=.coveragerc --cov-report=html:.test-results
 ```
+
+* To run tests with coverage in XML for Codacy
+
+```shell
+pytest src/tests --cov=src --cov-config=.coveragerc --cov-report=xml:coverage-reports/coverage.xml
+```

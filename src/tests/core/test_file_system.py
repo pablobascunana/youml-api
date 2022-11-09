@@ -7,7 +7,7 @@ from core.managers.file import LocalFileManager
 @pytest.mark.django_db
 class TestLocalFileSystem:
 
-    filename = '.env.production'
+    filename = '.env'
 
     @staticmethod
     def test_provider(file_manager):
