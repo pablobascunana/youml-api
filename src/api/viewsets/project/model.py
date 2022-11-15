@@ -9,9 +9,9 @@ from api.mixins.validate_model import ValidateModelMixin
 
 class Project(ValidateModelMixin, models.Model):
     uuid = models.UUIDField(_('uuid'), max_length=64, unique=True, primary_key=True, default=uuid.uuid4)
-    name = models.CharField(_('name'), max_length=30, null=False)
+    name = models.CharField(_('name'), max_length=30, null=False, blank=False)
     created_at = models.DateTimeField(_('createdAt'), default=timezone.now, db_column='createdAt')
-    storage_in = models.CharField(_('storage_in'), max_length=240, null=True, blank=True)
+    storage_in = models.CharField(_('storageIn'), max_length=240, null=False, blank=False, db_column='storageIn')
     user = models.ForeignKey("users.User", on_delete=models.CASCADE, null=False, blank=False, db_column='user')
 
     REQUIRED_FIELDS = ['user', 'name', 'storage_in']

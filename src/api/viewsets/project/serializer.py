@@ -12,4 +12,7 @@ class ProjectSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Project
-        fields = ('uuid', 'name', 'created_at', 'user')
+        fields = '__all__'
+        extra_kwargs = {
+            'storage_in': {'write_only': True}
+        }
