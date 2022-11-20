@@ -1,4 +1,4 @@
-from django.db.models import QuerySet, Q
+from django.db.models import QuerySet
 
 from core.utils.query import do_bulk_update
 from api.viewsets import ImageLabels
