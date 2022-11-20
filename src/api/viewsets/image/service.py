@@ -1,4 +1,3 @@
-from datetime import datetime
 from typing import Dict
 
 from django.db.models import QuerySet
