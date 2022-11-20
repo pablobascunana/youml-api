@@ -20,7 +20,7 @@ class DatasetViewSet(viewsets.ModelViewSet):
         else:
             datasets = self.get_queryset().filter(user=request.user, project=request.GET.get('project'))
 
-        json_datasets = DatasetSerializer(datasets, many=True).data
+        json_datasets = self.get_serializer(datasets, many=True).data
         return Response(json_datasets, status=status.HTTP_200_OK)
 
     def create(self, request, *args, **kwargs):
