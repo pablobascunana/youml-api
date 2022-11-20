@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
 from api.viewsets.dataset.model import Dataset
+from core.utils.date import datetime_date_to_str
 
 
 class DatasetSerializer(serializers.ModelSerializer):
@@ -8,7 +9,7 @@ class DatasetSerializer(serializers.ModelSerializer):
 
     @staticmethod
     def get_created_at(obj):
-        return obj.created_at.strftime("%d-%m-%Y %H:%M:%S")
+        return datetime_date_to_str(obj.created_at)
 
     class Meta:
         model = Dataset
