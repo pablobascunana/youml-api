@@ -1,8 +1,7 @@
 import pytest
-from model_bakery import baker
 from rest_framework.test import APIClient
 
-from api.viewsets import Dataset, Training
+from api.viewsets import Dataset
 from api.viewsets.project.model import Project
 
 
