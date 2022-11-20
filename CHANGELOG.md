@@ -8,7 +8,8 @@ All notable changes will be documented in this file
 * [PR-66](https://github.com/pablobascunana/youml-manager/pull/66) Training model
 * [PR-67](https://github.com/pablobascunana/youml-manager/pull/67) Mark to train at dates in image and image label models
 * [PR-68](https://github.com/pablobascunana/youml-manager/pull/68) Create new training model
-* [PR-70](https://github.com/pablobascunana/youml-manager/pull/68) Create training endpoint
+* [PR-70](https://github.com/pablobascunana/youml-manager/pull/70) Create training endpoint
+* [PR-71](https://github.com/pablobascunana/youml-manager/pull/71) Retrieve training endpoint
 
 ### Changed
 * [PR-68](https://github.com/pablobascunana/youml-manager/pull/68) Refactor migrations
