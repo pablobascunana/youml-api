@@ -8,9 +8,11 @@ All notable changes will be documented in this file
 * [PR-66](https://github.com/pablobascunana/youml-manager/pull/66) Training model
 * [PR-67](https://github.com/pablobascunana/youml-manager/pull/67) Mark to train at dates in image and image label models
 * [PR-68](https://github.com/pablobascunana/youml-manager/pull/68) Create new training model
+* [PR-70](https://github.com/pablobascunana/youml-manager/pull/68) Create training endpoint
 
 ### Changed
 * [PR-68](https://github.com/pablobascunana/youml-manager/pull/68) Refactor migrations
+* [PR-69](https://github.com/pablobascunana/youml-manager/pull/69) Bump tox version from 3.27.0 to 3.27.1
 
 ## [0.0.11](https://github.com/pablobascunana/youml-manager/compare/0953144...af06caf) (09-11-2022)
 
