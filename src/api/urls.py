@@ -6,6 +6,7 @@ from .viewsets.image.view import ImageViewSet
 from .viewsets.image_labels.view import ImageLabelViewSet
 from .viewsets.label.view import LabelViewSet
 from .viewsets.project.view import ProjectViewSet
+from .viewsets.training.view import TrainingViewSet
 
 router = SimpleRouter(trailing_slash=False)
 
@@ -17,5 +18,6 @@ router.register("dataset", DatasetViewSet)
 router.register("label", LabelViewSet)
 router.register("image", ImageViewSet)
 router.register("image-label", ImageLabelViewSet)
+router.register("mark-to-train", TrainingViewSet)
 
 urlpatterns += router.urls
