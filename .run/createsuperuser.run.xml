@@ -6,7 +6,7 @@
     <envs>
       <env name="PYTHONUNBUFFERED" value="1" />
     </envs>
-    <option name="SDK_HOME" value="$USER_HOME$/.local/share/virtualenvs/youml-api-gH_s7P0W/bin/Python" />
+    <option name="SDK_HOME" value="$USER_HOME$/.local/share/virtualenvs/youml-api-gH_s7P0W/bin/python" />
     <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
     <option name="IS_MODULE_SDK" value="false" />
     <option name="ADD_CONTENT_ROOTS" value="true" />
