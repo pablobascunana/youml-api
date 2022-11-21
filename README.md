@@ -1,4 +1,4 @@
-# YouML Manager
+# YouML API
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=youml-manager&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=youml-manager)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=youml-manager&metric=coverage)](https://sonarcloud.io/summary/new_code?id=youml-manager)
