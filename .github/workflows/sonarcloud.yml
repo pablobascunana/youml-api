@@ -1,4 +1,4 @@
-name: SonarCloud-Coverage
+name: SonarCloud-Analysis-Coverage
 on:
   push:
     branches:
