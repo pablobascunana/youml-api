@@ -5,6 +5,7 @@ All notable changes will be documented in this file
 ## [0.0.12](https://github.com/pablobascunana/youml-api/compare/af06caf...develop) (WIP)
 
 ### Added
+* [PR-85](https://github.com/pablobascunana/youml-api/pull/85) Encode and decode JWT
 * [PR-71](https://github.com/pablobascunana/youml-api/pull/71) Retrieve training endpoint
 * [PR-70](https://github.com/pablobascunana/youml-api/pull/70) Create training endpoint
 * [PR-68](https://github.com/pablobascunana/youml-api/pull/68) Create new training model
