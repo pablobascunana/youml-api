@@ -12,8 +12,8 @@ BEARER = 'Bearer'
 
 class JwtToken:
     @staticmethod
-    def encode(payload: Dict) -> str:
-        payload['exp'] = date_now_plus_delta_in_minutes(1)
+    def encode(payload: Dict, minutes: int) -> str:
+        payload['exp'] = date_now_plus_delta_in_minutes(minutes)
         encoded_jwt = jwt.encode(payload, settings.JWT_SECRET, algorithm="HS256")
         return f"{BEARER} {encoded_jwt}"
 
