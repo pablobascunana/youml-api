@@ -59,16 +59,3 @@ class RegisterUserService:
     @staticmethod
     def save_user(user: User):
         user.save()
-
-    @staticmethod
-    def create_validation_jwt(user: User) -> str:
-        exp_timestamp = datetime.datetime.now(tz=datetime.timezone.utc) + datetime.timedelta(days=1)
-        return jwt.encode({'exp': exp_timestamp, 'uuid': str(user.uuid)}, os.getenv('JWT_USER_VALIDATION'),
-                          algorithm="HS256")
-
-    @staticmethod
-    def check_validation_jwt(token: str) -> Union[Dict, bool]:
-        try:
-            return jwt.decode(token, os.getenv('JWT_USER_VALIDATION'), algorithms=["HS256"])
-        except (DecodeError, ExpiredSignatureError):
-            return False
