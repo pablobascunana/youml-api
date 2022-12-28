@@ -5,16 +5,17 @@ All notable changes will be documented in this file
 ## [0.0.12](https://github.com/pablobascunana/youml-api/compare/af06caf...develop) (WIP)
 
 ### Added
-* [PR-66](https://github.com/pablobascunana/youml-api/pull/66) Training model
-* [PR-67](https://github.com/pablobascunana/youml-api/pull/67) Mark to train at dates in image and image label models
-* [PR-68](https://github.com/pablobascunana/youml-api/pull/68) Create new training model
-* [PR-70](https://github.com/pablobascunana/youml-api/pull/70) Create training endpoint
 * [PR-71](https://github.com/pablobascunana/youml-api/pull/71) Retrieve training endpoint
+* [PR-70](https://github.com/pablobascunana/youml-api/pull/70) Create training endpoint
+* [PR-68](https://github.com/pablobascunana/youml-api/pull/68) Create new training model
+* [PR-67](https://github.com/pablobascunana/youml-api/pull/67) Mark to train at dates in image and image label models
+* [PR-66](https://github.com/pablobascunana/youml-api/pull/66) Training model
 
 ### Changed
-* [PR-68](https://github.com/pablobascunana/youml-api/pull/68) Refactor migrations
+* [PR-84](https://github.com/pablobascunana/youml-api/pull/72) Rename some files references from youml-manager to youml-api
 * [PR-69](https://github.com/pablobascunana/youml-api/pull/69) Bump tox version from 3.27.0 to 3.27.1
 * [PR-72](https://github.com/pablobascunana/youml-api/pull/72) Rename repository from youml-manager to youml-api
+* [PR-68](https://github.com/pablobascunana/youml-api/pull/68) Refactor migrations
 
 ## [0.0.11](https://github.com/pablobascunana/youml-api/compare/0953144...af06caf) (09-11-2022)
 
