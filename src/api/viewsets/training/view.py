@@ -1,11 +1,18 @@
+from django.conf import settings
 from rest_framework import viewsets, status, mixins
+from rest_framework.decorators import action
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
+from api.viewsets.dataset.service import DatasetService
 from api.viewsets.image.service import ImageService
 from api.viewsets.image_labels.service import ImageLabelsService
+from api.viewsets.project.service import ProjectService
 from api.viewsets.training.model import Training
 from api.viewsets.training.serializer import TrainingSerializer
 from api.viewsets.training.service import TrainingService
+from core.services.jwt import JwtToken
+from core.services.rest_client import post
 
 
 class TrainingViewSet(mixins.RetrieveModelMixin, mixins.CreateModelMixin, viewsets.GenericViewSet):
@@ -25,9 +32,17 @@ class TrainingViewSet(mixins.RetrieveModelMixin, mixins.CreateModelMixin, viewse
         trainings_to_return = self.training_service.format_trainings(json_trainings, dataset)
         return Response(trainings_to_return, status=status.HTTP_200_OK)
 
-    def create(self, request, *args, **kwargs):
+    @action(methods=["post"], name="mark_to_train", url_path='mark-to-train', url_name="mark-to-train", detail=False,
+            permission_classes=[IsAuthenticated])
+    def mark_to_train(self, request):
         training = {"dataset": request.data['dataset'], "user": request.user.uuid}
         ImageService().update_mark_to_train_at()
         ImageLabelsService().update_mark_to_train_at()
         self.training_service.create(training)
         return Response(status=status.HTTP_200_OK)
+
+    def create(self, request, *args, **kwargs):
+        project = DatasetService().get_project(request.data['dataset'])
+        headers = {"Authorization": JwtToken().encode({}, 1)}
+        payload = {"dataset": request.data['dataset'], "path": f"{project.storage_in}/{project.uuid}"}
+        return post(url=f"{settings.MANAGER_URL}/train", payload=payload, headers=headers)

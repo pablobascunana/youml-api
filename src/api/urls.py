@@ -18,6 +18,6 @@ router.register("dataset", DatasetViewSet)
 router.register("label", LabelViewSet)
 router.register("image", ImageViewSet)
 router.register("image-label", ImageLabelViewSet)
-router.register("mark-to-train", TrainingViewSet)
+router.register("train", TrainingViewSet)
 
 urlpatterns += router.urls
