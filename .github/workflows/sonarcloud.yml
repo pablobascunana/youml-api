@@ -24,6 +24,7 @@ jobs:
           echo "URL_VERIFICATION_ENDPOINT=${{ secrets.URL_VERIFICATION_ENDPOINT }}" >> src/.env
           echo "STORAGE_TYPE=${{ secrets.STORAGE_TYPE }}" >> src/.env
           echo "STORAGE_PATH=${{ secrets.STORAGE_PATH }}" >> src/.env
+          echo "MANAGER_URL=${{ secrets.MANAGER_URL }}" >> src/.env
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
