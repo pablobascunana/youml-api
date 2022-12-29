@@ -13,6 +13,7 @@ pyjwt = "*"
 python-dotenv = "*"
 sendgrid = "*"
 requests = "*"
+requests-mock = "*"
 
 [dev-packages]
 pytest = "*"
