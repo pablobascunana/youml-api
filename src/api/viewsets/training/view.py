@@ -7,7 +7,6 @@ from rest_framework.response import Response
 from api.viewsets.dataset.service import DatasetService
 from api.viewsets.image.service import ImageService
 from api.viewsets.image_labels.service import ImageLabelsService
-from api.viewsets.project.service import ProjectService
 from api.viewsets.training.model import Training
 from api.viewsets.training.serializer import TrainingSerializer
 from api.viewsets.training.service import TrainingService
