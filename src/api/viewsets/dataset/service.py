@@ -2,6 +2,7 @@ from typing import Dict
 
 from rest_framework import serializers
 
+from api.viewsets import Project
 from api.viewsets.dataset.model import Dataset
 from api.viewsets.dataset.serializer import DatasetSerializer
 
@@ -17,6 +18,10 @@ class DatasetService:
         except Exception as e:
             raise serializers.ValidationError(e) from e
         return dataset_serializer.data
+
+    @staticmethod
+    def get_project(uuid: str) -> Project:
+        return Dataset.objects.filter(pk=uuid)[0].project
 
     @staticmethod
     def delete(dataset_uuid: str):

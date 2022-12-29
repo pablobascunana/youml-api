@@ -13,6 +13,7 @@ if os.path.isfile(dotenv_file):
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 DEBUG = bool(os.environ.get('DJANGO_DEBUG'))
 JWT_SECRET = os.environ.get('JWT_SECRET')
+MANAGER_URL = os.environ.get('MANAGER_URL')
 
 ALLOWED_HOSTS = []
 

@@ -10,7 +10,8 @@ from users.models import User
 
 @pytest.mark.django_db
 class TestProjectEndpoints:
-    endpoint = '/api/v1/mark-to-train'
+    endpoint = '/api/v1/train'
+    mark_to_train_endpoint = '/api/v1/train/mark-to-train'
 
     def test_list_trainings_as_admin_user(self, client_as_admin: APIClient):
         response = client_as_admin[0].get(self.endpoint)
@@ -38,11 +39,31 @@ class TestProjectEndpoints:
         response = client.get(f'{self.endpoint}/{dataset_to_train.pk}')
         assert response.status_code == 403
 
-    def test_create_training(self, client_as_user: APIClient, dataset_to_train: Dataset):
-        response = client_as_user[0].post(f"{self.endpoint}", {"dataset": dataset_to_train.uuid}, format='json')
+    def test_mark_to_train(self, client_as_user: APIClient, dataset_to_train: Dataset):
+        response = client_as_user[0].post(f"{self.mark_to_train_endpoint}", {"dataset": dataset_to_train.uuid},
+                                          format='json')
         assert response.status_code == 200
 
-    def test_create_training_without_permissions(self, client: APIClient, dataset_to_train: Dataset):
+    def test_mark_to_train_without_permissions(self, client: APIClient, dataset_to_train: Dataset):
+        response = client.post(f"{self.mark_to_train_endpoint}", {"dataset": dataset_to_train.uuid}, format='json')
+        assert response.status_code == 403
+
+    def test_success_train(self, client_as_user: APIClient, dataset_to_train: Dataset, mock_success_post):
+        response = client_as_user[0].post(f"{self.endpoint}", {"dataset": dataset_to_train.uuid},
+                                          format='json')
+        assert response.status_code == 200
+
+    def test_forbidden_train(self, client_as_user: APIClient, dataset_to_train: Dataset, mock_forbidden_post):
+        response = client_as_user[0].post(f"{self.endpoint}", {"dataset": dataset_to_train.uuid},
+                                          format='json')
+        assert response.status_code == 403
+
+    def test_not_found_train(self, client_as_user: APIClient, dataset_to_train: Dataset, mock_not_found_post):
+        response = client_as_user[0].post(f"{self.endpoint}", {"dataset": dataset_to_train.uuid},
+                                          format='json')
+        assert response.status_code == 404
+
+    def test_train_without_permissions(self, client: APIClient, dataset_to_train: Dataset, mock_forbidden_post):
         response = client.post(f"{self.endpoint}", {"dataset": dataset_to_train.uuid}, format='json')
         assert response.status_code == 403
 

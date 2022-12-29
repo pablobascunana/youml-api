@@ -6,4 +6,5 @@ from tests.fixtures.dataset import dataset, dataset_to_train, dataset_to_train_w
 from tests.fixtures.file_manager import file_manager  # noqa: F401 pylint: disable=unused-import
 from tests.fixtures.image import image  # noqa: F401 pylint: disable=unused-import
 from tests.fixtures.label import label  # noqa: F401 pylint: disable=unused-import
+from tests.fixtures.manager_requests import mock_success_post, mock_forbidden_post, mock_not_found_post  # noqa: F401 pylint: disable=unused-import
 
