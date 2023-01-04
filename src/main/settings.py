@@ -15,6 +15,12 @@ DEBUG = bool(os.environ.get('DJANGO_DEBUG'))
 JWT_SECRET = os.environ.get('JWT_SECRET')
 MANAGER_URL = os.environ.get('MANAGER_URL')
 
+RABBITMQ_USER = os.environ.get('RABBITMQ_USER')
+RABBITMQ_PASSWORD = os.environ.get('RABBITMQ_PASSWORD')
+RABBITMQ_HOST = os.environ.get('RABBITMQ_HOST')
+RABBITMQ_VHOST = os.environ.get('RABBITMQ_VHOST')
+RABBITMQ_QUEUE_NAME = os.environ.get('RABBITMQ_QUEUE_NAME')
+
 ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = 'users.User'
