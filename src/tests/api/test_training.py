@@ -1,4 +1,5 @@
 from typing import Tuple
+from unittest.mock import patch, MagicMock
 
 import pytest
 from rest_framework.test import APIClient
@@ -48,10 +49,11 @@ class TestProjectEndpoints:
         response = client.post(f"{self.mark_to_train_endpoint}", {"dataset": dataset_to_train.uuid}, format='json')
         assert response.status_code == 403
 
-    def test_success_train(self, client_as_user: APIClient, dataset_to_train: Dataset):
-        response = client_as_user[0].post(f"{self.endpoint}", {"dataset": dataset_to_train.uuid},
-                                          format='json')
-        assert response.status_code == 200
+    def test_success_train(self, client_as_user: APIClient, dataset_to_train: Dataset, rabbitmq_connection: MagicMock):
+        with patch("core.services.rabbitmq_producer.RabbitMQProducer") as fake_rabbitmq_connection:
+            fake_rabbitmq_connection.return_value = rabbitmq_connection
+            response = client_as_user[0].post(f"{self.endpoint}", {"dataset": dataset_to_train.uuid}, format='json')
+            assert response.status_code == 200
 
     def test_train_without_permissions(self, client: APIClient, dataset_to_train: Dataset):
         response = client.post(f"{self.endpoint}", {"dataset": dataset_to_train.uuid}, format='json')
