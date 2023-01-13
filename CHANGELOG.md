@@ -5,7 +5,7 @@ All notable changes will be documented in this file
 ## [0.0.12](https://github.com/pablobascunana/youml-api/compare/af06caf...develop) (WIP)
 
 ### Added
-* [PR-92](https://github.com/pablobascunana/youml-api/pull/92) Create RabbitMQ producer
+* [PR-98](https://github.com/pablobascunana/youml-api/pull/92) Create RabbitMQ producer
 * [PR-86](https://github.com/pablobascunana/youml-api/pull/86) Add train endpoint
 * [PR-85](https://github.com/pablobascunana/youml-api/pull/85) Encode and decode JWT
 * [PR-71](https://github.com/pablobascunana/youml-api/pull/71) Retrieve training endpoint
