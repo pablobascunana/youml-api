@@ -25,6 +25,11 @@ jobs:
           echo "STORAGE_TYPE=${{ secrets.STORAGE_TYPE }}" >> src/.env
           echo "STORAGE_PATH=${{ secrets.STORAGE_PATH }}" >> src/.env
           echo "MANAGER_URL=${{ secrets.MANAGER_URL }}" >> src/.env
+          echo "RABBITMQ_USER=${{ secrets.RABBITMQ_USER }}" >> src/.env
+          echo "RABBITMQ_PASSWORD=${{ secrets.RABBITMQ_PASSWORD }}" >> src/.env
+          echo "RABBITMQ_HOST=${{ secrets.RABBITMQ_HOST }}" >> src/.env
+          echo "RABBITMQ_VHOST=${{ secrets.RABBITMQ_VHOST }}" >> src/.env
+          echo "RABBITMQ_QUEUE_NAME=${{ secrets.RABBITMQ_QUEUE_NAME }}" >> src/.env
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
