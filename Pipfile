@@ -5,18 +5,21 @@ name = "pypi"
 
 [packages]
 django = "*"
-django-rest-framework = "*"
 django-extensions = "*"
+django-rest-framework = "*"
+djangorestframework-camel-case = "*"
 model-bakery = "*"
+pika = "*"
+pyjwt = "*"
 python-dotenv = "*"
 sendgrid = "*"
-pyjwt = "*"
-djangorestframework-camel-case = "*"
+requests = "*"
+requests-mock = "*"
 
 [dev-packages]
 pytest = "*"
-pytest-django = "*"
 pytest-cov = "*"
+pytest-django = "*"
 tox = "*"
 
 [requires]

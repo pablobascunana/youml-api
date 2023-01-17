@@ -4,6 +4,7 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 
 from core.services.email import EmailService
+from core.services.jwt import JwtToken
 from core.utils.file import replace_keys
 from users.models import User
 from core.permissions import IsAllowed
@@ -34,7 +35,7 @@ class UserViewSet(viewsets.ModelViewSet):
     @action(methods=["get"], name="User validation", url_path='validate', url_name="Validate email user", detail=False,
             permission_classes=[AllowAny])
     def validate(self, request):
-        payload = self.user_service.check_validation_jwt(request.GET.get('token'))
+        payload = JwtToken().decode(request.GET.get('token'))
         user = self.get_queryset().filter(pk=payload['uuid'])[0]
         if not user.verified:
             self.user_service.verify_and_activate_user(user)

@@ -1,10 +1,7 @@
 import os
 import dotenv
 
-if 'src' in os.getcwd():
-    BASE_DIR = os.getcwd()
-else:
-    BASE_DIR = os.path.join(os.getcwd(), 'src')
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 dotenv_file = os.path.join(BASE_DIR, '.env')
 if os.path.isfile(dotenv_file):
@@ -15,6 +12,14 @@ if os.path.isfile(dotenv_file):
 
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 DEBUG = bool(os.environ.get('DJANGO_DEBUG'))
+JWT_SECRET = os.environ.get('JWT_SECRET')
+MANAGER_URL = os.environ.get('MANAGER_URL')
+
+RABBITMQ_USER = os.environ.get('RABBITMQ_USER')
+RABBITMQ_PASSWORD = os.environ.get('RABBITMQ_PASSWORD')
+RABBITMQ_HOST = os.environ.get('RABBITMQ_HOST')
+RABBITMQ_VHOST = os.environ.get('RABBITMQ_VHOST')
+RABBITMQ_QUEUE_NAME = os.environ.get('RABBITMQ_QUEUE_NAME')
 
 ALLOWED_HOSTS = []
 
@@ -26,7 +31,6 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
     'django_extensions',
     'users',
     'api'
@@ -118,12 +122,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.1/howto/static-files/
-
-STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

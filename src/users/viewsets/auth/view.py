@@ -1,10 +1,10 @@
 from django.contrib.auth import authenticate, login, logout
-from django.utils import timezone
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
+from core.utils.date import date_now
 from users.models import User
 from core.permissions import IsAllowed
 from users.viewsets.user.serializer import UserSerializer
@@ -25,7 +25,7 @@ class AuthViewSet(viewsets.ModelViewSet):
         if user := authenticate(username=request.data['username'], password=request.data['password']):
             if user.active:
                 login(request, user)
-                user.last_login = timezone.now()
+                user.last_login = date_now()
                 self.user_service.update_login_attempts(user, 0)
                 return Response(status=status.HTTP_200_OK)
 
