@@ -2,7 +2,7 @@
 
 All notable changes will be documented in this file
 
-## [0.0.12](https://github.com/pablobascunana/youml-api/compare/af06caf...4ff03d3) (17-01-2023)
+## [0.0.12](https://github.com/pablobascunana/youml-api/compare/af06caf...b106a91) (17-01-2023)
 
 ### Added
 * [PR-98](https://github.com/pablobascunana/youml-api/pull/92) Create RabbitMQ producer
