@@ -181,10 +181,10 @@
         },
         "djangorestframework-camel-case": {
             "hashes": [
-                "sha256:48d92fd65961ff6bb320a00c926aa7a5a6f7b0278d08fd1c5e96054b2708179f"
+                "sha256:cdae75846648abb6585c7470639a1d2fb064dc45f8e8b62aaa50be7f1a7a61f4"
             ],
             "index": "pypi",
-            "version": "==1.4.0"
+            "version": "==1.4.2"
         },
         "idna": {
             "hashes": [
