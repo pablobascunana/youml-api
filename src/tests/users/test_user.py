@@ -5,7 +5,6 @@ from rest_framework.test import APIClient
 
 from core.services.jwt import JwtToken
 from users.models import User
-from users.viewsets.user.service import RegisterUserService
 
 
 @pytest.mark.django_db
