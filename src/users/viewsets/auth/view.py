@@ -1,5 +1,5 @@
 from django.contrib.auth import authenticate, login, logout
-from rest_framework import viewsets, status
+from rest_framework import viewsets, status, mixins
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -14,7 +14,7 @@ from users.viewsets.user.service import RegisterUserService
 ATTEMPTS = 5
 
 
-class AuthViewSet(viewsets.ModelViewSet):
+class AuthViewSet(mixins.CreateModelMixin, viewsets.GenericViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = [IsAllowed]
