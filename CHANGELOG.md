@@ -5,7 +5,7 @@ All notable changes will be documented in this file
 ## [0.0.12](https://github.com/pablobascunana/youml-api/compare/af06caf...f18f033) (17-01-2023)
 
 ### Added
-* [PR-98](https://github.com/pablobascunana/youml-api/pull/92) Create RabbitMQ producer
+* [PR-98](https://github.com/pablobascunana/youml-api/pull/98) Create RabbitMQ producer
 * [PR-86](https://github.com/pablobascunana/youml-api/pull/86) Add train endpoint
 * [PR-85](https://github.com/pablobascunana/youml-api/pull/85) Encode and decode JWT
 * [PR-71](https://github.com/pablobascunana/youml-api/pull/71) Retrieve training endpoint
@@ -15,6 +15,7 @@ All notable changes will be documented in this file
 * [PR-66](https://github.com/pablobascunana/youml-api/pull/66) Training model
 
 ### Changed
+* [PR-115](https://github.com/pablobascunana/youml-api/pull/115) Endpoints refactor
 * [PR-86](https://github.com/pablobascunana/youml-api/pull/86) Refactor mark-to-train endpoint
 * [PR-85](https://github.com/pablobascunana/youml-api/pull/85) Bump tox version from 4.0.11 to 4.0.18
 * [PR-84](https://github.com/pablobascunana/youml-api/pull/84) Rename some files references from youml-manager to youml-api

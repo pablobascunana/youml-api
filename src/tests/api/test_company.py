@@ -16,7 +16,7 @@ class TestCompanyEndpoints:
 
     def test_list_companies_with_permission(self, client_as_admin: APIClient):
         response = client_as_admin[0].get(self.endpoint)
-        assert response.status_code == 403
+        assert response.status_code == 405
 
     def test_list_companies_not_found(self, client_as_admin: APIClient):
         response = client_as_admin[0].get(f"{self.endpoint}/11111")
@@ -28,7 +28,7 @@ class TestCompanyEndpoints:
 
     def test_list_company_without_permission(self, client: APIClient):
         response = client.get(f"{self.endpoint}/11111")
-        assert response.status_code == 403
+        assert response.status_code == 404
 
     def test_create_company_and_user(self, client: APIClient):
         company = {"name": "company_name", "email": "company_email@email.com", "cif": "C12571322"}

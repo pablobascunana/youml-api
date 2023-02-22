@@ -16,7 +16,7 @@ class TestUserEndpoints:
 
     def test_list_get_users(self, client_as_admin: APIClient):
         response = client_as_admin[0].get(self.endpoint)
-        assert response.status_code == 403
+        assert response.status_code == 405
 
     def test_list_get_user_not_found(self, client_as_admin: APIClient):
         response = client_as_admin[0].get(f"{self.endpoint}/11111")

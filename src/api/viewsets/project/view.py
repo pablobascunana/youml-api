@@ -1,4 +1,4 @@
-from rest_framework import viewsets, status
+from rest_framework import viewsets, status, mixins
 from rest_framework.response import Response
 
 from api.viewsets.project.model import Project
@@ -7,7 +7,7 @@ from api.viewsets.project.service import ProjectService
 from users.viewsets.user.service import RegisterUserService
 
 
-class ProjectViewSet(viewsets.ModelViewSet):
+class ProjectViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, mixins.DestroyModelMixin, viewsets.GenericViewSet):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
 

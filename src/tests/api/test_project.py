@@ -42,8 +42,8 @@ class TestProjectEndpoints:
         response = client.post(f"{self.endpoint}", body, format='json')
         assert response.status_code == 403
 
-    def test_update(self, client_as_admin: APIClient):
-        response = client_as_admin[0].put(f"{self.endpoint}")
+    def test_update(self, client_as_admin: APIClient, project: Project):
+        response = client_as_admin[0].put(f"{self.endpoint}/{project.pk}")
         assert response.status_code == 405
 
     def test_delete(self, client_as_admin: APIClient, project: Project):

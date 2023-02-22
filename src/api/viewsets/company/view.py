@@ -1,6 +1,5 @@
 from django.conf import settings
-from rest_framework import viewsets, status
-from rest_framework.response import Response
+from rest_framework import viewsets, mixins
 
 from api.viewsets.company.model import Company
 from api.viewsets.company.serializer import CompanySerializer
@@ -11,14 +10,10 @@ from core.permissions import IsAllowed
 from users.viewsets.user.service import RegisterUserService
 
 
-class CompanyViewSet(viewsets.ModelViewSet):
+class CompanyViewSet(mixins.CreateModelMixin, viewsets.GenericViewSet):
     queryset = Company.objects.all()
     serializer_class = CompanySerializer
     permission_classes = [IsAllowed]
-
-    @staticmethod
-    def list(request, *args, **kwargs):
-        return Response(status=status.HTTP_403_FORBIDDEN)
 
     @staticmethod
     def create(request, *args, **kwargs):
