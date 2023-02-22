@@ -1,4 +1,4 @@
-from rest_framework import viewsets, status
+from rest_framework import viewsets, status, mixins
 from rest_framework.response import Response
 
 from api.viewsets.dataset.model import Dataset
@@ -7,7 +7,7 @@ from api.viewsets.dataset.service import DatasetService
 from users.viewsets.user.service import RegisterUserService
 
 
-class DatasetViewSet(viewsets.ModelViewSet):
+class DatasetViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, mixins.DestroyModelMixin, viewsets.GenericViewSet):
     queryset = Dataset.objects.all()
     serializer_class = DatasetSerializer
 
