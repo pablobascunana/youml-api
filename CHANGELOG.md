@@ -2,6 +2,11 @@
 
 All notable changes will be documented in this file
 
+## [0.0.13](https://github.com/pablobascunana/youml-api/compare/f18f033...develop) (WIP)
+
+### Changed
+* [PR-115](https://github.com/pablobascunana/youml-api/pull/115) Endpoints refactor
+
 ## [0.0.12](https://github.com/pablobascunana/youml-api/compare/af06caf...f18f033) (17-01-2023)
 
 ### Added
@@ -15,7 +20,6 @@ All notable changes will be documented in this file
 * [PR-66](https://github.com/pablobascunana/youml-api/pull/66) Training model
 
 ### Changed
-* [PR-115](https://github.com/pablobascunana/youml-api/pull/115) Endpoints refactor
 * [PR-86](https://github.com/pablobascunana/youml-api/pull/86) Refactor mark-to-train endpoint
 * [PR-85](https://github.com/pablobascunana/youml-api/pull/85) Bump tox version from 4.0.11 to 4.0.18
 * [PR-84](https://github.com/pablobascunana/youml-api/pull/84) Rename some files references from youml-manager to youml-api
